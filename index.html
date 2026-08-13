@@ -1,612 +1,725 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Etiketleri -->
-    <title>Tarsus Tavuk Kümes Otomasyonu & Panoları | HİS Otomasyon - Bekir Şener</title>
-    <meta name="description" content="Tarsus ve tüm Türkiye'ye anahtar teslim tavuk kümes otomasyon sistemleri, iklimlendirme panoları ve akıllı kümes çözümleri. Bekir Şener güvencesiyle 30 yıllık tecrübe.">
-    <meta name="keywords" content="tavuk kümes otomasyonu, kümes panoları, tarsus kümes otomasyon, iklimlendirme panosu, akıllı tavuk çiftliği, anahtar teslim kümes otomasyonu türkiye, bekir şener otomasyon, kümes havalandırma pano">
-    <meta name="author" content="Bekir Şener - HİS Otomasyon Sistemleri">
-    <meta name="robots" content="index, follow">
-
-    <!-- JSON-LD Schema.org (Google SEO Zengin Snippet) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "HİS Otomasyon Sistemleri",
-      "founder": "Bekir Şener",
-      "description": "Tavuk kümes otomasyonu ve endüstriyel havalandırma panolarında 30 yıllık tecrübe.",
-      "telephone": "+905337692278",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Tarsus",
-        "addressRegion": "Mersin",
-        "addressCountry": "TR"
-      },
-      "areaServed": "Türkiye"
-    }
-    </script>
-
-    <!-- Tailwind CSS (CDN) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            dark: '#0B1120',
-                            blue: '#0284C7',
-                            amber: '#F59E0B',
-                            glass: 'rgba(30, 41, 59, 0.7)'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Syne', 'sans-serif'],
-                        mono: ['Share Tech Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Share+Tech+Mono&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Özel CSS - Animasyonlar ve Glassmorphism -->
-    <style>
-        body {
-            background-color: #050810;
-            color: #F8FAFC;
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(2, 132, 199, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
-            overflow-x: hidden;
-        }
-        
-        .glass-panel {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        .hmi-screen {
-            background: #020617;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 0 15px rgba(2, 132, 199, 0.3);
-            border: 2px solid #1E293B;
-            position: relative;
-        }
-
-        .scanline {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
-            background-size: 100% 4px;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .digital-text {
-            font-family: 'Share Tech Mono', monospace;
-            text-shadow: 0 0 8px currentColor;
-        }
-
-        .led {
-            width: 12px; height: 12px; border-radius: 50%;
-            display: inline-block;
-            box-shadow: 0 0 10px currentColor;
-            transition: all 0.3s ease;
-        }
-        .led.active-green { background-color: #22C55E; color: #22C55E; }
-        .led.inactive-red { background-color: #EF4444; color: #EF4444; }
-        .led.warning-amber { background-color: #F59E0B; color: #F59E0B; }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .floating-whatsapp {
-            animation: pulse-glow 2s infinite;
-        }
-
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cari Hesap Takibi • Finans</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:#f4f7fb;color:#172033}
+header{background:#111827;color:#fff;padding:22px 5%;display:flex;justify-content:space-between;align-items:center;gap:20px}
+header h1{margin:0;font-size:24px}header span{opacity:.7;font-size:13px}
+.container{max-width:1400px;margin:28px auto;padding:0 20px}
+.grid{display:grid;grid-template-columns:330px 1fr;gap:20px}
+.card{background:#fff;border-radius:16px;padding:20px;box-shadow:0 8px 30px #17203312;border:1px solid #e7ebf2}
+h2{margin:0 0 16px;font-size:18px}
+h3{margin:0 0 12px}
+.stats{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-bottom:20px}
+.stat{padding:18px;border-radius:14px;background:#f8fafc}
+.stat small{display:block;color:#64748b}.stat strong{font-size:20px;display:block;margin-top:7px}.stat.alert strong{color:#dc2626}.stat.good strong{color:#16a34a}.stat.warn strong{color:#c2410c}
+input,select,textarea,button{font:inherit}
+input,select,textarea{width:100%;padding:12px 13px;border:1px solid #d8dee9;border-radius:10px;outline:none;margin-bottom:10px;background:#fff}
+textarea{min-height:90px;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:#2563eb}
+button{border:0;border-radius:10px;padding:11px 15px;cursor:pointer;font-weight:700}
+button:disabled{opacity:.6;cursor:not-allowed}
+.primary{background:#2563eb;color:#fff}.success{background:#16a34a;color:#fff}.danger{background:#fee2e2;color:#b91c1c}.muted{background:#eef2f7;color:#334155}
+.warning{background:#fff7ed;color:#c2410c}.dark{background:#111827;color:#fff}
+.list{margin-top:14px}
+.cari{padding:14px;border:1px solid #e5eaf1;border-radius:12px;margin-bottom:8px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.cari:hover{background:#f8fafc}.cari.active{border-color:#2563eb;background:#eff6ff}
+.balance{font-weight:800}.borc{color:#dc2626}.alacak{color:#16a34a}.neutral{color:#475569}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:11px;border-bottom:1px solid #edf0f5;font-size:13px}th{color:#64748b;font-size:11px;text-transform:uppercase}
+.empty{text-align:center;color:#94a3b8;padding:35px}.topbar{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-bottom:15px}
+#status{font-size:13px;color:#64748b;margin-top:10px}
+.badge{padding:5px 9px;border-radius:99px;background:#eef2ff;color:#3730a3;font-size:12px}
+.section-title{font-size:15px;font-weight:800;margin:22px 0 10px;color:#1e293b}
+.detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.info{background:#f8fafc;border-radius:12px;padding:13px}.info small{display:block;color:#64748b;margin-bottom:5px}.info strong{word-break:break-word}
+.finance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.finance-box{padding:16px;border-radius:13px;background:#f8fafc}.finance-box small{color:#64748b}.finance-box strong{display:block;font-size:20px;margin-top:6px}
+.overdue{background:#fff1f2!important;border:1px solid #fecdd3}
+.modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.58);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999;backdrop-filter:blur(3px)}
+.modal-backdrop.show{display:flex}.modal{width:min(720px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:18px;padding:24px;box-shadow:0 25px 70px rgba(15,23,42,.28)}
+.modal h3{font-size:21px}.modal p{margin:0 0 20px;color:#64748b;font-size:13px}.close-x{float:right;background:transparent;color:#64748b;font-size:22px;padding:2px 7px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
+.toast{position:fixed;right:22px;bottom:22px;background:#111827;color:#fff;padding:13px 17px;border-radius:11px;box-shadow:0 10px 30px rgba(0,0,0,.18);display:none;z-index:10000;font-size:14px}
+.toast.show{display:block}.hint{font-size:12px;color:#64748b;margin:-4px 0 10px}
+.filters{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1fr;gap:8px;margin-bottom:12px}.aging-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:10px 0 15px}.aging-box{padding:12px;border:1px solid #edf0f5;border-radius:12px;background:#fff}.aging-box small{display:block;color:#64748b}.aging-box strong{display:block;margin-top:5px;font-size:16px}.method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 15px}.method-box{padding:12px;border-radius:12px;background:#f8fafc}.method-box small{display:block;color:#64748b}.method-box strong{display:block;margin-top:5px;font-size:16px}.report-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:15px 0}.report-box{padding:15px;border-radius:13px;background:#f8fafc;border:1px solid #edf0f5}.report-box strong{display:block;font-size:18px;margin-top:5px}.risk-line{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:10px}.progress{height:8px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin-top:8px}.progress>span{display:block;height:100%;background:#2563eb}.small{font-size:12px;color:#64748b}
+@media(max-width:1200px){.stats{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:1000px){.stats{grid-template-columns:repeat(2,1fr)}.detail-grid,.finance-grid,.aging-grid,.method-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.container{padding:0 12px}.row,.row3,.detail-grid,.finance-grid,.aging-grid,.method-grid,.filters{grid-template-columns:1fr}header{padding:18px 15px}}
+</style>
 </head>
-<body class="antialiased font-sans selection:bg-brand-amber selection:text-black">
+<body>
+<header>
+  <div><h1>📒 Cari Hesap Takibi</h1><span>Detaylı Cari • Borç / Alacak • Tahsilat • Vade • Risk • Finansal Analiz</span></div>
+  <span id="connection">Bağlanıyor...</span>
+</header>
 
-    <!-- Header / Navbar -->
-    <nav class="fixed w-full z-50 glass-panel border-b-0 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-blue to-brand-amber flex items-center justify-center font-display font-bold text-xl shadow-lg">
-                        HİS
-                    </div>
-                    <span class="font-display font-bold text-xl tracking-wide hidden sm:block">OTOMASYON</span>
-                </div>
-                <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
-                    <a href="#ozellikler" class="hover:text-brand-amber transition-colors">Sistemler</a>
-                    <a href="#simulasyon" class="hover:text-brand-amber transition-colors">Canlı Simülasyon</a>
-                    <a href="#hakkimizda" class="hover:text-brand-amber transition-colors">Hakkımızda</a>
-                </div>
-                <div>
-                    <a href="https://wa.me/905337692278" target="_blank" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all flex items-center gap-2">
-                        <i class="fa-solid fa-phone text-brand-amber"></i> Hızlı İletişim
-                    </a>
-                </div>
-            </div>
+<div class="container">
+  <div class="stats">
+    <div class="stat"><small>Toplam Cari</small><strong id="totalCari">0</strong></div>
+    <div class="stat"><small>Toplam Borç</small><strong id="totalBorc">₺0,00</strong></div>
+    <div class="stat"><small>Toplam Tahsilat</small><strong id="totalAlacak">₺0,00</strong></div>
+    <div class="stat"><small>Net Borç</small><strong id="totalNet">₺0,00</strong></div>
+    <div class="stat alert"><small>Vadesi Geçen</small><strong id="totalOverdue">₺0,00</strong></div>
+    <div class="stat warn"><small>7 Gün İçinde</small><strong id="totalDue7">₺0,00</strong></div>
+    <div class="stat"><small>Limit Aşımı</small><strong id="limitAsimi">0</strong></div>
+  </div>
+
+  <div class="grid">
+    <aside class="card">
+      <h2>Yeni Cari</h2>
+      <input id="isim" placeholder="Ad Soyad / Firma">
+      <input id="telefon" placeholder="Telefon">
+      <button class="primary" style="width:100%" onclick="cariEkle()">+ Cari Ekle</button>
+      <div id="status"></div>
+
+      <hr style="border:0;border-top:1px solid #eee;margin:20px 0">
+      <input id="arama" placeholder="🔎 Cari ara..." oninput="listele()">
+      <div class="actions" style="margin-bottom:10px">
+        <button class="muted" onclick="cariFiltre='hepsi';listele()">Tümü</button>
+        <button class="danger" onclick="cariFiltre='borclu';listele()">Borçlular</button>
+        <button class="success" onclick="cariFiltre='alacakli';listele()">Alacaklılar</button>
+        <button class="warning" onclick="cariFiltre='limit';listele()">Limit Aşımı</button>
+      </div>
+      <div id="cariListesi" class="list"></div>
+    </aside>
+
+    <main class="card">
+      <div class="topbar">
+        <div>
+          <h2 id="seciliCari">Cari seçin</h2>
+          <div id="telefonGoster" style="color:#64748b"></div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-4xl mx-auto">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border-brand-amber/30 text-brand-amber text-sm font-semibold mb-6 reveal">
-                    <i class="fa-solid fa-certificate"></i> Bekir Şener Güvencesiyle 30 Yıllık Deneyim
-                </div>
-                <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight reveal" style="transition-delay: 100ms;">
-                    Geleceğin Akıllı <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-amber">Kümes Teknolojileri</span>
-                </h1>
-                <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto reveal" style="transition-delay: 200ms;">
-                    Tarsus'tan tüm Türkiye'ye anahtar teslim tavuk kümes otomasyon sistemleri. İklimlendirme, IoT izleme ve akıllı pano çözümleriyle maksimum verimlilik.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center reveal" style="transition-delay: 300ms;">
-                    <a href="https://wa.me/905337692278" target="_blank" class="bg-gradient-to-r from-brand-blue to-blue-600 hover:from-blue-600 hover:to-brand-blue text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-blue-900/50 transition-all flex items-center justify-center gap-3">
-                        <i class="fa-brands fa-whatsapp text-xl"></i> Projenizi Konuşalım
-                    </a>
-                    <a href="#simulasyon" class="glass-panel hover:bg-white/10 text-white px-8 py-4 rounded-full font-semibold transition-all flex items-center justify-center gap-3">
-                        Sistemi İncele <i class="fa-solid fa-arrow-down"></i>
-                    </a>
-                </div>
-            </div>
+        <div class="actions">
+          <button class="muted" onclick="yenile()">↻ Yenile</button><button class="dark" onclick="genelFinansRaporu()">📊 Finans Raporu</button>
+          <button class="muted" id="duzenleBtn" onclick="cariDuzenle()" style="display:none">✏ Düzenle</button>
+          <button class="danger" id="silBtn" onclick="cariSil()" style="display:none">Sil</button>
         </div>
-        
-        <!-- Arka Plan Dekorasyonları -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-slate-800 rounded-full opacity-50 blur-sm pointer-events-none"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-slate-700/50 rounded-full opacity-50 blur-md pointer-events-none"></div>
-    </section>
+      </div>
 
-    <!-- İstatistikler -->
-    <section class="border-y border-white/10 bg-white/5 backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
-                <div class="reveal">
-                    <div class="text-4xl font-display font-bold text-brand-amber mb-2">30+</div>
-                    <div class="text-sm text-slate-400 uppercase tracking-wider">Yıl Sektör Deneyimi</div>
-                </div>
-                <div class="reveal" style="transition-delay: 100ms;">
-                    <div class="text-4xl font-display font-bold text-brand-blue mb-2">%100</div>
-                    <div class="text-sm text-slate-400 uppercase tracking-wider">Mobil Kontrol</div>
-                </div>
-                <div class="reveal" style="transition-delay: 200ms;">
-                    <div class="text-4xl font-display font-bold text-white mb-2">81</div>
-                    <div class="text-sm text-slate-400 uppercase tracking-wider">İle Anahtar Teslim</div>
-                </div>
-                <div class="reveal" style="transition-delay: 300ms;">
-                    <div class="text-4xl font-display font-bold text-brand-amber mb-2">7/24</div>
-                    <div class="text-sm text-slate-400 uppercase tracking-wider">İzleme & Alarm</div>
-                </div>
-            </div>
+      <div id="cariDetay">
+        <div class="section-title">Finansal Özet</div>
+        <div class="report-grid">
+          <div class="report-box"><small>Vadesi Geçmiş Borç</small><strong id="dashOverdue">₺0,00</strong></div>
+          <div class="report-box"><small>7 Gün İçinde Vadesi Gelen</small><strong id="dashDue7">₺0,00</strong></div>
+          <div class="report-box"><small>Limit Aşımı Olan Cari</small><strong id="dashLimit">0</strong></div>
         </div>
-    </section>
+        <div class="section-title">Cari Durumu</div>
+        <div id="dashboardCariRapor" class="empty">Soldan bir cari seçin.</div>
+      </div>
+    </main>
+  </div>
+</div>
 
-    <!-- CANLI SİMÜLASYON BÖLÜMÜ -->
-    <section id="simulasyon" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Akıllı Pano Canlı Simülasyonu</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">HİS Otomasyon panolarının arka planda nasıl çalıştığını inceleyin. İklimlendirme verileri saniyelik olarak işlenir ve otonom kararlar alınır.</p>
-            </div>
+<div id="duzenleModal" class="modal-backdrop" onclick="modalDisinaTiklandi(event)">
+  <div class="modal">
+    <button class="close-x" onclick="duzenleKapat()">×</button>
+    <h3>Cari Kartını Düzenle</h3>
+    <p>Kimlik ve iletişim bilgileri ile cari risk/limit bilgisini birlikte yönetin.</p>
 
-            <div class="hmi-screen rounded-2xl p-6 md:p-10 max-w-5xl mx-auto reveal">
-                <div class="scanline rounded-2xl"></div>
-                
-                <!-- HMI Header -->
-                <div class="flex justify-between items-center border-b border-slate-800 pb-4 mb-8 relative z-20">
-                    <div class="flex items-center gap-4">
-                        <i class="fa-solid fa-microchip text-brand-blue text-3xl"></i>
-                        <div>
-                            <h3 class="digital-text text-brand-blue text-xl">HİS-MASTER V4.0</h3>
-                            <p class="text-xs text-slate-500 font-mono">SİSTEM DURUMU: <span class="text-green-500">ÇEVRİMİÇİ</span></p>
-                        </div>
-                    </div>
-                    <div class="text-right digital-text text-slate-400">
-                        <div id="sim-time" class="text-xl">00:00:00</div>
-                        <div class="text-xs">TARSUS/MERKEZ</div>
-                    </div>
-                </div>
+    <div class="section-title">Cari Bilgileri</div>
+    <div class="row">
+      <div><label>Ad Soyad / Firma</label><input id="duzenleIsim"></div>
+      <div><label>Telefon</label><input id="duzenleTelefon"></div>
+    </div>
+    <div class="row">
+      <div><label>Vergi No / T.C. No</label><input id="duzenleVergiNo"></div>
+      <div><label>Vergi Dairesi</label><input id="duzenleVergiDairesi"></div>
+    </div>
+    <div class="row">
+      <div><label>Yetkili</label><input id="duzenleYetkili"></div>
+      <div><label>Cari Limiti (₺)</label><input id="duzenleLimit" type="number" min="0" step="0.01"></div>
+    </div>
+    <label>Adres</label><textarea id="duzenleAdres"></textarea>
 
-                <!-- HMI Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-20">
-                    
-                    <!-- Ortam Sensörleri -->
-                    <div class="col-span-1 md:col-span-2 grid grid-cols-2 gap-4">
-                        <!-- Sıcaklık -->
-                        <div class="bg-slate-900/80 border border-slate-700 rounded-lg p-5">
-                            <div class="text-slate-400 text-sm font-semibold mb-2 flex justify-between">
-                                İÇ SICAKLIK <i class="fa-solid fa-temperature-half text-brand-amber"></i>
-                            </div>
-                            <div class="digital-text text-5xl text-brand-amber" id="val-temp">24.5<span class="text-2xl text-slate-500">°C</span></div>
-                            <div class="w-full bg-slate-800 h-1.5 mt-4 rounded-full overflow-hidden">
-                                <div class="bg-brand-amber h-full transition-all duration-500" id="bar-temp" style="width: 60%"></div>
-                            </div>
-                        </div>
+    <div class="section-title">Finansal Ayarlar</div>
+    <div class="row">
+      <div>
+        <label>Varsayılan Vade (gün)</label>
+        <input id="duzenleVadeGun" type="number" min="0" step="1" placeholder="Örn. 30">
+      </div>
+      <div>
+        <label>Risk Notu</label>
+        <input id="duzenleRiskNotu" placeholder="Örn. Ödeme günü hassas">
+      </div>
+    </div>
 
-                        <!-- Nem -->
-                        <div class="bg-slate-900/80 border border-slate-700 rounded-lg p-5">
-                            <div class="text-slate-400 text-sm font-semibold mb-2 flex justify-between">
-                                BAĞIL NEM <i class="fa-solid fa-droplet text-brand-blue"></i>
-                            </div>
-                            <div class="digital-text text-5xl text-brand-blue" id="val-hum">62.0<span class="text-2xl text-slate-500">%</span></div>
-                            <div class="w-full bg-slate-800 h-1.5 mt-4 rounded-full overflow-hidden">
-                                <div class="bg-brand-blue h-full transition-all duration-500" id="bar-hum" style="width: 62%"></div>
-                            </div>
-                        </div>
+    <div class="modal-actions">
+      <button class="muted" onclick="duzenleKapat()">Vazgeç</button>
+      <button class="primary" id="duzenleKaydetBtn" onclick="duzenleKaydet()">✓ Kaydet</button>
+    </div>
+  </div>
+</div>
 
-                        <!-- Gazlar -->
-                        <div class="bg-slate-900/80 border border-slate-700 rounded-lg p-5">
-                            <div class="text-slate-400 text-sm font-semibold mb-2 flex justify-between">
-                                AMONYAK (NH3) <i class="fa-solid fa-wind text-green-500"></i>
-                            </div>
-                            <div class="digital-text text-4xl text-green-400" id="val-nh3">12<span class="text-xl text-slate-500">ppm</span></div>
-                            <div class="text-xs font-mono text-slate-500 mt-2">LIMIT: 25 ppm</div>
-                        </div>
+<div id="hareketModal" class="modal-backdrop" onclick="hareketModalDisinaTiklandi(event)">
+  <div class="modal">
+    <button class="close-x" onclick="hareketKapat()">×</button>
+    <h3 id="hareketModalBaslik">Yeni Finansal Hareket</h3>
+    <p>Cari hesabın borç/alacak hareketini ayrıntılı olarak kaydedin.</p>
 
-                        <!-- Basınç -->
-                        <div class="bg-slate-900/80 border border-slate-700 rounded-lg p-5">
-                            <div class="text-slate-400 text-sm font-semibold mb-2 flex justify-between">
-                                FARK BASINÇ <i class="fa-solid fa-compress text-purple-400"></i>
-                            </div>
-                            <div class="digital-text text-4xl text-purple-400" id="val-press">22<span class="text-xl text-slate-500">Pa</span></div>
-                            <div class="text-xs font-mono text-slate-500 mt-2">PID KONTROL: AKTİF</div>
-                        </div>
-                    </div>
+    <div class="row">
+      <div>
+        <label>İşlem Türü</label>
+        <select id="hareketTip" onchange="hareketTipDegisti()">
+          <option value="borc">Borç / Fatura / Malzeme</option>
+          <option value="alacak">Tahsilat / Alacak</option>
+        </select>
+      </div>
+      <div>
+        <label>Tutar (₺)</label>
+        <input id="hareketTutar" type="number" min="0.01" step="0.01" placeholder="0,00">
+      </div>
+    </div>
 
-                    <!-- Ekipman Durumu -->
-                    <div class="bg-slate-900/80 border border-slate-700 rounded-lg p-5">
-                        <div class="text-slate-300 font-semibold mb-6 border-b border-slate-700 pb-2">RÖLE / ÇIKIŞ DURUMLARI</div>
-                        
-                        <div class="space-y-5 font-mono text-sm">
-                            <div class="flex justify-between items-center">
-                                <span class="text-slate-400">Tünel Fan 1-2</span>
-                                <div class="flex items-center gap-2">
-                                    <span class="text-green-500" id="txt-fan">DEVREDE</span>
-                                    <div class="led active-green" id="led-fan"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex justify-between items-center">
-                                <span class="text-slate-400">Isıtıcı Sistem</span>
-                                <div class="flex items-center gap-2">
-                                    <span class="text-red-500" id="txt-heat">KAPALI</span>
-                                    <div class="led inactive-red" id="led-heat"></div>
-                                </div>
-                            </div>
+    <div class="row">
+      <div><label>İşlem Tarihi</label><input id="hareketTarih" type="date"></div>
+      <div><label>Vade Tarihi</label><input id="hareketVade" type="date"><div class="hint" id="vadeHint">Cari kartındaki varsayılan vade otomatik uygulanır.</div></div>
+    </div>
 
-                            <div class="flex justify-between items-center">
-                                <span class="text-slate-400">Klape Motoru</span>
-                                <div class="flex items-center gap-2">
-                                    <span class="text-amber-500">Yarı Açık (%45)</span>
-                                    <div class="led warning-amber"></div>
-                                </div>
-                            </div>
+    <div class="row">
+      <div><label>Belge / Fatura No</label><input id="hareketBelgeNo" placeholder="Örn. FTR-2026-00125"></div>
+      <div>
+        <label>Ödeme / Tahsilat Yöntemi</label>
+        <select id="hareketYontem">
+          <option value="">Seçilmedi</option>
+          <option>Nakit</option><option>Havale / EFT</option><option>Kredi Kartı</option>
+          <option>Çek</option><option>Senet</option><option>POS</option><option>Diğer</option>
+        </select>
+      </div>
+    </div>
 
-                            <div class="flex justify-between items-center">
-                                <span class="text-slate-400">Soğutma Pedi</span>
-                                <div class="flex items-center gap-2">
-                                    <span class="text-red-500">KAPALI</span>
-                                    <div class="led inactive-red"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex justify-between items-center pt-4 border-t border-slate-700">
-                                <span class="text-slate-400">Şebeke Voltajı</span>
-                                <div class="digital-text text-xl text-green-400" id="val-volt">381V</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <label>Açıklama</label>
+    <textarea id="hareketAciklama" placeholder="Malzeme, hizmet, ödeme, tahsilat vb."></textarea>
 
-    <!-- Özellikler Grid -->
-    <section id="ozellikler" class="py-24 bg-slate-900/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Gelişmiş Sistemler & Otomasyon Panoları</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">Modern kümeslerin ihtiyaç duyduğu tüm teknolojik altyapıyı, endüstri standartlarında pano dizaynlarıyla sunuyoruz.</p>
-            </div>
+    <div class="modal-actions">
+      <button class="muted" onclick="hareketKapat()">Vazgeç</button>
+      <button class="primary" id="hareketKaydetBtn" onclick="hareketKaydet()">✓ Hareketi Kaydet</button>
+    </div>
+  </div>
+</div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Kutu 1 -->
-                <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 reveal">
-                    <div class="w-14 h-14 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-blue text-2xl mb-6">
-                        <i class="fa-solid fa-fan"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Akıllı İklimlendirme</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">PID Kontrollü havalandırma panoları. Sıcaklık, nem, Amonyak (NH3) ve CO2 sensörleriyle entegre tam otomatik fan ve ped yönetimi.</p>
-                </div>
+<div id="toast" class="toast"></div>
 
-                <!-- Kutu 2 -->
-                <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 reveal" style="transition-delay: 100ms;">
-                    <div class="w-14 h-14 rounded-full bg-brand-amber/20 flex items-center justify-center text-brand-amber text-2xl mb-6">
-                        <i class="fa-solid fa-mobile-screen-button"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">IoT Uzaktan İzleme</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Sistemlerinizi dünyanın her yerinden cep telefonu ile izleyin. Kritik durumlarda anında SMS ve sesli arama ile alarm bildirimi.</p>
-                </div>
+<script>
+const SUPABASE_URL="https://qttgoxncdsbqycbkxvsl.supabase.co/rest/v1/";
+const SUPABASE_KEY="sb_publishable_g4oxZYNdgNkjpswa-c4P1g_uzUTu9s6";
 
-                <!-- Kutu 3 -->
-                <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 reveal" style="transition-delay: 200ms;">
-                    <div class="w-14 h-14 rounded-full bg-green-500/20 flex items-center justify-center text-green-500 text-2xl mb-6">
-                        <i class="fa-solid fa-wheat-awn"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Yem & Su Yönetimi</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Yapay zeka destekli silo kantarları ve su sayaçları. Günlük tüketim analizleri ile fireyi sıfıra indiren otomasyon yazılımları.</p>
-                </div>
+let cariler=[],hareketler=[],seciliId=null,cariFiltre="hepsi",duzenlenecekHareketId=null;
 
-                <!-- Kutu 4 -->
-                <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 reveal">
-                    <div class="w-14 h-14 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-500 text-2xl mb-6">
-                        <i class="fa-solid fa-egg"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Bantsal Otomasyon</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Yumurta toplama ve gübre tahliye bantları için frekans konvertörlü (inverter) hassas hız kontrol panoları ile hasarsız işlem.</p>
-                </div>
+async function api(path,options={}){
+  const res=await fetch(SUPABASE_URL+path,{
+    ...options,
+    headers:{
+      "apikey":SUPABASE_KEY,
+      "Authorization":"Bearer "+SUPABASE_KEY,
+      "Content-Type":"application/json",
+      "Prefer":options.method==="POST"||options.method==="PATCH"?"return=representation":"return=minimal",
+      ...(options.headers||{})
+    }
+  });
+  if(!res.ok)throw new Error(await res.text());
+  const text=await res.text();
+  return text?JSON.parse(text):null;
+}
+function tl(n){return new Intl.NumberFormat("tr-TR",{style:"currency",currency:"TRY"}).format(Number(n||0))}
+function tarihTR(d){if(!d)return"-";return new Date(d+"T00:00:00").toLocaleDateString("tr-TR")}
+function localISODate(d=new Date()){const y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,"0"),day=String(d.getDate()).padStart(2,"0");return `${y}-${m}-${day}`}
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function durum(b,a){
+  const bakiye=Number(b||0)-Number(a||0);
+  return bakiye>0?`<span class="balance borc">Borç: ${tl(bakiye)}</span>`:
+         bakiye<0?`<span class="balance alacak">Alacak: ${tl(Math.abs(bakiye))}`:
+         `<span class="balance neutral">Kapalı</span>`;
+}
+function cariHesap(id){
+  const hs=hareketler.filter(h=>Number(h.cari_id)===Number(id));
+  const b=hs.reduce((s,h)=>s+Number(h.borc||0),0);
+  const a=hs.reduce((s,h)=>s+Number(h.alacak||0),0);
+  return {hs,b,a,net:b-a};
+}
+function limitDurumu(c,net){
+  const limit=Number(c.limit_tutari||0);
+  if(!limit)return "";
+  return net>limit?`<span class="badge" style="background:#fee2e2;color:#b91c1c">Limit aşıldı</span>`:
+         net>limit*.8?`<span class="badge" style="background:#fff7ed;color:#c2410c">Limite yaklaşıyor</span>`:"";
+}
 
-                <!-- Kutu 5 -->
-                <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 reveal" style="transition-delay: 100ms;">
-                    <div class="w-14 h-14 rounded-full bg-red-500/20 flex items-center justify-center text-red-500 text-2xl mb-6">
-                        <i class="fa-solid fa-bolt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Güç & Transfer Panoları</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Kesintisiz şebeke/jeneratör transfer (ATS) panoları. Yüksek voltaj, faz kaybı ve motor koruma röleleri ile can ve mal güvenliği.</p>
-                </div>
+async function yukle(){
+  try{
+    cariler=await api("/cariler?select=*&order=id.desc")||[];
+    hareketler=await api("/hareketler?select=*&order=created_at.desc")||[];
+    document.getElementById("connection").textContent="● Bağlı";
+    document.getElementById("connection").style.color="#86efac";
+    listele();finansOzet();
+    if(seciliId)detayGoster(seciliId);
+  }catch(e){
+    document.getElementById("connection").textContent="● Bağlantı hatası";
+    document.getElementById("connection").style.color="#fca5a5";
+    durumMesaji("Hata: "+e.message,true);
+  }
+}
+function listele(){
+  const q=document.getElementById("arama").value.toLocaleLowerCase("tr-TR");
+  const el=document.getElementById("cariListesi");
+  let filtre=cariler.filter(c=>(c.isim||"").toLocaleLowerCase("tr-TR").includes(q)||(c.telefon||"").includes(q)||(c.vergi_no||"").includes(q));
+  filtre=filtre.filter(c=>{
+    const h=cariHesap(c.id);
+    return cariFiltre==="borclu"?h.net>0:cariFiltre==="alacakli"?h.net<0:cariFiltre==="limit"?(Number(c.limit_tutari||0)>0&&h.net>Number(c.limit_tutari||0)):true;
+  });
+  if(!filtre.length){el.innerHTML='<div class="empty">Cari bulunamadı.</div>';return}
+  el.innerHTML=filtre.map(c=>{
+    const h=cariHesap(c.id);
+    return `<div class="cari ${seciliId==c.id?'active':''}" onclick="detayGoster(${c.id})">
+      <div><strong>${esc(c.isim)}</strong><br><small>${esc(c.telefon||"Telefon yok")}</small></div>
+      <div>${durum(h.b,h.a)}</div>
+    </div>`;
+  }).join("");
+}
+function finansOzet(){
+  const today=new Date();
+  today.setHours(0,0,0,0);
+  const plus7=new Date(today);plus7.setDate(plus7.getDate()+7);
+  let b=0,a=0,over=0,due7=0,limitCount=0;
+  hareketler.forEach(h=>{
+    const borc=Number(h.borc||0),alacak=Number(h.alacak||0); b+=borc;a+=alacak;
+    if(borc&&h.vade_tarihi){
+      const d=new Date(h.vade_tarihi+'T00:00:00');
+      if(d<today) over+=borc;
+      else if(d<=plus7) due7+=borc;
+    }
+  });
+  cariler.forEach(c=>{const h=cariHesap(c.id),limit=Number(c.limit_tutari||0);if(limit&&h.net>limit)limitCount++});
+  document.getElementById('totalCari').textContent=cariler.length;
+  document.getElementById('totalBorc').textContent=tl(b);
+  document.getElementById('totalAlacak').textContent=tl(a);
+  document.getElementById('totalNet').textContent=tl(b-a);
+  document.getElementById('totalOverdue').textContent=tl(over);
+  document.getElementById('totalDue7').textContent=tl(due7);
+  document.getElementById('limitAsimi').textContent=limitCount;
+  const doEl=id=>document.getElementById(id); if(doEl('dashOverdue'))doEl('dashOverdue').textContent=tl(over);if(doEl('dashDue7'))doEl('dashDue7').textContent=tl(due7);if(doEl('dashLimit'))doEl('dashLimit').textContent=limitCount;
+}
+function ozet(){finansOzet()}
+async function cariEkle(){
+  const isim=document.getElementById("isim").value.trim(),telefon=document.getElementById("telefon").value.trim();
+  if(!isim){alert("İsim / firma adı yazın.");return}
+  try{
+    await api("/cariler",{method:"POST",body:JSON.stringify({isim,telefon})});
+    document.getElementById("isim").value="";document.getElementById("telefon").value="";
+    durumMesaji("Cari kaydedildi.");await yukle();
+  }catch(e){durumMesaji("Kayıt hatası: "+e.message,true)}
+}
+function vadeDurumu(x){
+  if(!x.vade_tarihi)return {metin:'Vade yok',cls:'neutral',gun:null};
+  const today=new Date();today.setHours(0,0,0,0);
+  const d=new Date(x.vade_tarihi+'T00:00:00');
+  const diff=Math.ceil((d-today)/86400000);
+  if(diff<0)return {metin:`${Math.abs(diff)} gün gecikmiş`,cls:'borc',gun:diff};
+  if(diff===0)return {metin:'Bugün vadesi',cls:'borc',gun:0};
+  return {metin:`${diff} gün kaldı`,cls:diff<=7?'warning':'neutral',gun:diff};
+}
+function detayGoster(id){
+  seciliId=id;
+  const c=cariler.find(x=>Number(x.id)===Number(id));if(!c)return;
+  const h=cariHesap(id),limit=Number(c.limit_tutari||0);
+  document.getElementById('seciliCari').textContent=c.isim;
+  document.getElementById('telefonGoster').textContent=c.telefon||'Telefon yok';
+  document.getElementById('silBtn').style.display='block';document.getElementById('duzenleBtn').style.display='block';
+  const today=new Date();today.setHours(0,0,0,0);const plus7=new Date(today);plus7.setDate(plus7.getDate()+7);
+  const overdue=h.hs.filter(x=>Number(x.borc||0)>0&&x.vade_tarihi&&new Date(x.vade_tarihi+'T00:00:00')<today);
+  const due7=h.hs.filter(x=>Number(x.borc||0)>0&&x.vade_tarihi&&new Date(x.vade_tarihi+'T00:00:00')>=today&&new Date(x.vade_tarihi+'T00:00:00')<=plus7);
+  const overdueTotal=overdue.reduce((s,x)=>s+Number(x.borc||0),0),due7Total=due7.reduce((s,x)=>s+Number(x.borc||0),0);
+  const limitPct=limit>0?Math.min(100,Math.max(0,(h.net/limit)*100)):0;
+  let riskBadge=limit&&h.net>limit?'🔴 LİMİT AŞILDI':limit&&h.net>limit*.8?'🟠 LİMİTE YAKLAŞTI':h.net>0?'🟡 Borçlu':'🟢 Kapalı / Alacaklı';
+  document.getElementById('cariDetay').innerHTML=`
+    <div class='detail-grid'>
+      <div class='info'><small>Vergi No / T.C.</small><strong>${esc(c.vergi_no||'-')}</strong></div>
+      <div class='info'><small>Vergi Dairesi</small><strong>${esc(c.vergi_dairesi||'-')}</strong></div>
+      <div class='info'><small>Yetkili</small><strong>${esc(c.yetkili||'-')}</strong></div>
+      <div class='info'><small>Adres</small><strong>${esc(c.adres||'-')}</strong></div>
+      <div class='info'><small>Cari Limiti</small><strong>${limit?tl(limit):'Tanımlı değil'}</strong></div>
+      <div class='info'><small>Varsayılan Vade</small><strong>${c.varsayilan_vade_gun?c.varsayilan_vade_gun+' gün':'Tanımlı değil'}</strong></div>
+    </div>
+    <div class='finance-grid'>
+      <div class='finance-box'><small>Toplam Borç</small><strong class='borc'>${tl(h.b)}</strong></div>
+      <div class='finance-box'><small>Toplam Tahsilat / Alacak</small><strong class='alacak'>${tl(h.a)}</strong></div>
+      <div class='finance-box ${limit&&h.net>limit?'overdue':''}'><small>Net Bakiye</small><strong>${durum(h.b,h.a)}</strong><div style='margin-top:7px'>${limitDurumu(c,h.net)}</div></div>
+    </div>
+    <div class='report-grid'>
+      <div class='report-box ${overdueTotal?'overdue':''}'><small>Vadesi Geçmiş</small><strong class='${overdueTotal?'borc':''}'>${tl(overdueTotal)}</strong></div>
+      <div class='report-box'><small>7 Gün İçinde</small><strong>${tl(due7Total)}</strong></div>
+      <div class='report-box'><small>Risk Durumu</small><strong>${riskBadge}</strong>${limit?`<div class='risk-line'><span class='small'>Limit kullanımı</span><span class='small'>${limitPct.toFixed(0)}%</span></div><div class='progress'><span style='width:${limitPct}%'></span></div>`:''}</div>
+    </div>
+    ${c.risk_notu?`<div class='finance-box warning' style='margin-bottom:15px'><strong>⚠ Risk Notu</strong><div style='margin-top:6px'>${esc(c.risk_notu)}</div></div>`:''}
+    <div class='section-title'>Vade Yaşlandırma</div>
+    <div class='aging-grid'>
+      <div class='aging-box'><small>1–7 gün</small><strong class='borc'>${tl(vadeYaslandirma(h.hs).g1_7)}</strong></div>
+      <div class='aging-box'><small>8–30 gün</small><strong class='borc'>${tl(vadeYaslandirma(h.hs).g8_30)}</strong></div>
+      <div class='aging-box'><small>31–60 gün</small><strong class='borc'>${tl(vadeYaslandirma(h.hs).g31_60)}</strong></div>
+      <div class='aging-box'><small>61–90 gün</small><strong class='borc'>${tl(vadeYaslandirma(h.hs).g61_90)}</strong></div>
+      <div class='aging-box'><small>90+ gün</small><strong class='borc'>${tl(vadeYaslandirma(h.hs).g90)}</strong></div>
+    </div>
+    <div class='section-title'>Tahsilat Dağılımı</div>
+    <div class='method-grid'>
+      ${Object.entries(tahsilatYontemleri(h.hs)).filter(([,v])=>v>0).map(([k,v])=>`<div class='method-box'><small>${esc(k)}</small><strong class='alacak'>${tl(v)}</strong></div>`).join('') || `<div class='method-box'><small>Henüz tahsilat yok</small><strong>₺0,00</strong></div>`}
+    </div>
+    <div class='actions' style='margin:18px 0'><button class='primary' onclick="hareketAc('borc')">+ Borç / Fatura</button><button class='success' onclick="hareketAc('alacak')">+ Tahsilat / Alacak</button><button class='muted' onclick='finansalAnalizGoster()'>📈 Finansal Analiz</button></div>
+    <div class='section-title'>Cari Ekstresi</div>
+    <div class='filters'>
+      <select id='hareketFiltre' onchange='hareketleriCiz()'><option value='hepsi'>Tüm Hareketler</option><option value='borc'>Sadece Borç</option><option value='alacak'>Sadece Tahsilat</option><option value='overdue'>Vadesi Geçen</option><option value='due7'>7 Gün İçinde</option></select>
+      <input id='ekstreArama' placeholder='Açıklama / belge ara...' oninput='hareketleriCiz()'>
+      <div></div><div></div><button class='muted' onclick='ekstreCSV()'>⬇ CSV</button><button class='muted' onclick='ekstreYazdir()'>🖨 Ekstre Yazdır</button>
+    </div>
+    <div id='hareketTablosu'></div>`;
+  hareketleriCiz();listele();finansOzet();
+}
+function hareketleriCiz(){
+  if(!seciliId)return;const h=cariHesap(seciliId);let hs=[...h.hs];
+  const f=document.getElementById('hareketFiltre')?.value||'hepsi',q=(document.getElementById('ekstreArama')?.value||'').toLocaleLowerCase('tr-TR');
+  const today=new Date();today.setHours(0,0,0,0);const plus7=new Date(today);plus7.setDate(plus7.getDate()+7);
+  hs=hs.filter(x=>{const d=x.vade_tarihi?new Date(x.vade_tarihi+'T00:00:00'):null;const text=((x.aciklama||'')+' '+(x.belge_no||'')).toLocaleLowerCase('tr-TR');if(q&&!text.includes(q))return false;if(f==='borc')return Number(x.borc||0)>0;if(f==='alacak')return Number(x.alacak||0)>0;if(f==='overdue')return Number(x.borc||0)>0&&d&&d<today;if(f==='due7')return Number(x.borc||0)>0&&d&&d>=today&&d<=plus7;return true});
+  hs.sort((a,b)=>new Date((a.islem_tarihi||a.created_at?.slice(0,10)||'1970-01-01'))-new Date((b.islem_tarihi||b.created_at?.slice(0,10)||'1970-01-01')));
+  const el=document.getElementById('hareketTablosu');if(!el)return;if(!hs.length){el.innerHTML='<div class="empty">Bu filtreye uygun hareket yok.</div>';return}
+  let running=0;
+  el.innerHTML=`<div style='overflow:auto'><table><thead><tr><th>Tarih</th><th>Tür</th><th>Açıklama</th><th>Belge</th><th>Vade</th><th>Borç</th><th>Alacak</th><th>Bakiye</th><th></th></tr></thead><tbody>${hs.map(x=>{running+=Number(x.borc||0)-Number(x.alacak||0);const vd=vadeDurumu(x);return `<tr><td>${tarihTR(x.islem_tarihi||x.created_at?.slice(0,10))}</td><td>${x.hareket_tipi==='alacak'?'<span class="alacak">Tahsilat</span>':'<span class="borc">Borç</span>'}</td><td>${esc(x.aciklama||'')}${x.odeme_yontemi?`<br><small>${esc(x.odeme_yontemi)}</small>`:''}</td><td>${esc(x.belge_no||'-')}</td><td>${x.vade_tarihi?`<span class='${vd.cls}'>${tarihTR(x.vade_tarihi)}<br><small>${vd.metin}</small></span>`:'-'}</td><td class='borc'>${Number(x.borc||0)?tl(x.borc):'-'}</td><td class='alacak'>${Number(x.alacak||0)?tl(x.alacak):'-'}</td><td>${tl(running)}</td><td><div class='actions'><button class='muted' onclick='hareketDuzenle(${x.id})'>Düzenle</button><button class='danger' onclick='hareketSil(${x.id})'>Sil</button></div></td></tr>`}).join('')}</tbody></table></div>`;
+}
+function ekstreYazdir(){
+  if(!seciliId)return;const c=cariler.find(x=>Number(x.id)===Number(seciliId));const h=cariHesap(seciliId);const rows=h.hs.map(x=>`<tr><td>${tarihTR(x.islem_tarihi||x.created_at?.slice(0,10))}</td><td>${esc(x.aciklama||'')}</td><td>${esc(x.belge_no||'-')}</td><td>${x.vade_tarihi?tarihTR(x.vade_tarihi):'-'}</td><td>${tl(x.borc)}</td><td>${tl(x.alacak)}</td></tr>`).join('');const w=window.open('','_blank');w.document.write(`<html><head><title>${esc(c.isim)} - Cari Ekstre</title><style>body{font-family:Arial;padding:30px}table{width:100%;border-collapse:collapse}th,td{padding:8px;border-bottom:1px solid #ddd;text-align:left}h1{margin-bottom:5px}.sum{margin:15px 0;font-weight:bold}</style></head><body><h1>${esc(c.isim)}</h1><div>${esc(c.telefon||'')} ${esc(c.vergi_no||'')}</div><div class='sum'>Toplam Borç: ${tl(h.b)} | Toplam Alacak: ${tl(h.a)} | Net: ${tl(h.net)}</div><table><thead><tr><th>Tarih</th><th>Açıklama</th><th>Belge</th><th>Vade</th><th>Borç</th><th>Alacak</th></tr></thead><tbody>${rows}</tbody></table><script>window.print()<\/script></body></html>`);w.document.close();}
 
-                <!-- Kutu 6 -->
-                <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 reveal" style="transition-delay: 200ms;">
-                    <div class="w-14 h-14 rounded-full bg-slate-300/20 flex items-center justify-center text-slate-300 text-2xl mb-6">
-                        <i class="fa-solid fa-helmet-safety"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Anahtar Teslim Montaj</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Mühendislik tasarımı, profesyonel pano montajı ve saha kurulumu. İş bitiminde yerinde eğitim ve 7/24 teknik servis desteği.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Hakkımızda & Lokasyon -->
-    <section id="hakkimizda" class="py-24 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col lg:flex-row gap-16 items-center">
-                
-                <div class="w-full lg:w-1/2 reveal">
-                    <h2 class="font-display text-3xl md:text-5xl font-bold mb-6">Neden <span class="text-brand-amber">HİS Otomasyon?</span></h2>
-                    <p class="text-slate-300 text-lg mb-6 leading-relaxed">
-                        Kurucumuz <strong>Bekir Şener</strong> liderliğinde, tavukçuluk sektörünün kalbi olan Tarsus/Mersin bölgesinden tüm Türkiye'ye 30 yıllık tecrübemizi taşıyoruz. 
-                    </p>
-                    <p class="text-slate-400 mb-8 leading-relaxed">
-                        Sıradan elektrik panoları değil, hayvan refahını maksimumda tutarak yem/enerji dönüşüm oranını optimize eden "Akıllı Sistemler" üretiyoruz. Kullandığımız tüm endüstriyel şalt malzemeleri global kalite standartlarındadır.
-                    </p>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> İşletmeye Özel Projelendirme</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Kendi Yazılım ve Ar-Ge Altyapımız</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Hızlı Müdahale ve Uzaktan Arıza Tespiti</li>
-                    </ul>
-                </div>
+function vadeYaslandirma(hs){
+  const today=new Date();today.setHours(0,0,0,0);
+  const out={gecikmis:0,g1_7:0,g8_30:0,g31_60:0,g61_90:0,g90:0};
+  hs.forEach(x=>{
+    const borc=Number(x.borc||0); if(!borc)return;
+    if(!x.vade_tarihi){return}
+    const d=new Date(x.vade_tarihi+'T00:00:00');
+    const diff=Math.floor((today-d)/86400000);
+    if(diff>0 && diff<=7)out.g1_7+=borc;
+    else if(diff>7 && diff<=30)out.g8_30+=borc;
+    else if(diff>30 && diff<=60)out.g31_60+=borc;
+    else if(diff>60 && diff<=90)out.g61_90+=borc;
+    else if(diff>90)out.g90+=borc;
+  });
+  out.gecikmis=out.g1_7+out.g8_30+out.g31_60+out.g61_90+out.g90;
+  return out;
+}
+function tahsilatYontemleri(hs){
+  const m={Nakit:0,"Havale / EFT":0,"Kredi Kartı":0,Çek:0,Senet:0,POS:0,Diğer:0};
+  hs.forEach(x=>{const a=Number(x.alacak||0);if(!a)return;const k=x.odeme_yontemi||"Diğer";m[k]=(m[k]||0)+a;});
+  return m;
+}
+function finansalAnalizGoster(){
+  if(!seciliId)return;
+  const c=cariler.find(x=>Number(x.id)===Number(seciliId)); if(!c)return;
+  const h=cariHesap(seciliId), y=vadeYaslandirma(h.hs), m=tahsilatYontemleri(h.hs);
+  const w=window.open("","_blank");
+  const methodRows=Object.entries(m).filter(([,v])=>v>0).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<tr><td>${esc(k)}</td><td>${tl(v)}</td></tr>`).join("");
+  w.document.write(`<html lang="tr"><head><meta charset="utf-8"><title>${esc(c.isim)} - Finansal Analiz</title><style>
+  body{font-family:Arial,sans-serif;padding:32px;color:#172033}h1{margin:0 0 5px}h2{margin-top:28px} .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.card{padding:15px;background:#f5f7fa;border-radius:10px}.v{font-size:20px;font-weight:bold;margin-top:5px}table{width:100%;border-collapse:collapse}th,td{padding:10px;border-bottom:1px solid #ddd;text-align:left}@media(max-width:800px){.cards{grid-template-columns:1fr 1fr}}</style></head><body>
+  <h1>${esc(c.isim)}</h1><div>${esc(c.telefon||"")} · ${esc(c.vergi_no||"")} · ${esc(c.vergi_dairesi||"")}</div>
+  <div class="cards"><div class="card">Toplam Borç<div class="v">${tl(h.b)}</div></div><div class="card">Toplam Tahsilat<div class="v">${tl(h.a)}</div></div><div class="card">Net Bakiye<div class="v">${tl(h.net)}</div></div><div class="card">Cari Limiti<div class="v">${Number(c.limit_tutari||0)?tl(c.limit_tutari):"Tanımsız"}</div></div></div>
+  <h2>Vade Yaşlandırma</h2><table><tr><th>Yaşlandırma</th><th>Tutar</th></tr>
+  <tr><td>1–7 gün gecikmiş</td><td>${tl(y.g1_7)}</td></tr><tr><td>8–30 gün gecikmiş</td><td>${tl(y.g8_30)}</td></tr><tr><td>31–60 gün gecikmiş</td><td>${tl(y.g31_60)}</td></tr><tr><td>61–90 gün gecikmiş</td><td>${tl(y.g61_90)}</td></tr><tr><td>90+ gün gecikmiş</td><td>${tl(y.g90)}</td></tr><tr><th>Toplam Vadesi Geçmiş</th><th>${tl(y.gecikmis)}</th></tr></table>
+  <h2>Tahsilat Yöntemleri</h2><table><tr><th>Yöntem</th><th>Tutar</th></tr>${methodRows||"<tr><td colspan='2'>Kayıtlı tahsilat yok.</td></tr>"}</table>
+  <h2>Risk</h2><p>${Number(c.limit_tutari||0)?`Limit kullanımı: ${((h.net/Number(c.limit_tutari))*100).toFixed(1)}%`:"Cari limiti tanımlanmamış."}</p>
+  <script>window.print()<\/script></body></html>`);
+  w.document.close();
+}
+function ekstreCSV(){
+  if(!seciliId)return;
+  const c=cariler.find(x=>Number(x.id)===Number(seciliId)),h=cariHesap(seciliId);
+  const rows=[["Tarih","Tür","Açıklama","Belge No","Vade","Borç","Alacak","Ödeme Yöntemi"]];
+  h.hs.sort((a,b)=>new Date(a.islem_tarihi||a.created_at)-new Date(b.islem_tarihi||b.created_at)).forEach(x=>rows.push([
+    x.islem_tarihi||x.created_at?.slice(0,10)||"",
+    x.hareket_tipi==="alacak"?"Tahsilat":"Borç",
+    x.aciklama||"",x.belge_no||"",x.vade_tarihi||"",
+    Number(x.borc||0),Number(x.alacak||0),x.odeme_yontemi||""
+  ]));
+  const csv="\uFEFF"+rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(";")).join("\r\n");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=(c?.isim||"cari")+"-ekstre.csv";a.click();URL.revokeObjectURL(a.href);
+}
+function genellerFinansSatirlari(){
+  return cariler.map(c=>{
+    const h=cariHesap(c.id),y=vadeYaslandirma(h.hs),limit=Number(c.limit_tutari||0);
+    return {c,h,y,limit};
+  });
+}
+function genellerFinansRaporuHTML(){
+  const rows=genellerFinansSatirlari().sort((a,b)=>b.h.net-a.h.net).map(x=>`<tr><td>${esc(x.c.isim)}</td><td>${tl(x.h.b)}</td><td>${tl(x.h.a)}</td><td>${tl(x.h.net)}</td><td>${tl(x.y.gecikmis)}</td><td>${x.limit?tl(x.limit):"-"}</td><td>${x.limit?(x.h.net>x.limit?"LİMİT AŞILDI":(x.h.net>x.limit*.8?"YAKLAŞTI":"Uygun")):"Tanımsız"}</td></tr>`).join("");
+  return rows||"<tr><td colspan='7'>Cari yok.</td></tr>";
+}
+function genellFinansRaporu(){
+  const all=genellerFinansSatirlari();
+  const toplamNet=all.reduce((s,x)=>s+x.h.net,0), toplamGecikmis=all.reduce((s,x)=>s+x.y.gecikmis,0);
+  const w=window.open("","_blank");w.document.write(`<html lang="tr"><head><meta charset="utf-8"><title>Genel Cari Finans Raporu</title><style>body{font-family:Arial;padding:30px;color:#172033}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.card{padding:15px;background:#f5f7fa;border-radius:10px}.v{font-size:20px;font-weight:bold;margin-top:5px}table{width:100%;border-collapse:collapse;margin-top:20px}th,td{padding:9px;border-bottom:1px solid #ddd;text-align:left;font-size:12px}@media(max-width:800px){.cards{grid-template-columns:1fr 1fr}}</style></head><body><h1>Genel Cari Finans Raporu</h1><div>${new Date().toLocaleDateString("tr-TR")}</div><div class="cards"><div class="card">Cari Sayısı<div class="v">${all.length}</div></div><div class="card">Net Borç<div class="v">${tl(toplamNet)}</div></div><div class="card">Vadesi Geçmiş<div class="v">${tl(toplamGecikmis)}</div></div><div class="card">Limit Aşımı<div class="v">${all.filter(x=>x.limit&&x.h.net>x.limit).length}</div></div></div><table><thead><tr><th>Cari</th><th>Borç</th><th>Tahsilat</th><th>Net</th><th>Vadesi Geçmiş</th><th>Limit</th><th>Risk</th></tr></thead><tbody>${genellFinansRaporuHTML()}</tbody></table><script>window.print()<\/script></body></html>`);w.document.close();
+}
 
-                <div class="w-full lg:w-1/2 reveal" style="transition-delay: 200ms;">
-                    <div class="glass-panel p-8 rounded-2xl border-t-4 border-t-brand-amber relative overflow-hidden">
-                        <!-- Harita Arka Plan İllüstrasyonu -->
-                        <div class="absolute -right-10 -bottom-10 opacity-10">
-                            <i class="fa-solid fa-map-location-dot text-[200px]"></i>
-                        </div>
-                        
-                        <h3 class="text-2xl font-bold mb-6">İletişim Bilgileri</h3>
-                        
-                        <div class="space-y-6 relative z-10">
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center shrink-0 text-brand-amber">
-                                    <i class="fa-solid fa-user-tie"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-sm text-slate-400">Firma Yetkilisi</h4>
-                                    <p class="text-lg font-semibold text-white">Bekir Şener</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center shrink-0 text-brand-blue">
-                                    <i class="fa-solid fa-phone-volume"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-sm text-slate-400">Telefon / WhatsApp</h4>
-                                    <a href="https://wa.me/905337692278" target="_blank" class="text-xl font-bold text-white hover:text-brand-amber transition-colors">0533 769 22 78</a>
-                                </div>
-                            </div>
+function cariDuzenle(){
+  if(!seciliId)return;
+  const c=cariler.find(x=>Number(x.id)===Number(seciliId));if(!c)return;
+  document.getElementById("duzenleIsim").value=c.isim||"";
+  document.getElementById("duzenleTelefon").value=c.telefon||"";
+  document.getElementById("duzenleVergiNo").value=c.vergi_no||"";
+  document.getElementById("duzenleVergiDairesi").value=c.vergi_dairesi||"";
+  document.getElementById("duzenleYetkili").value=c.yetkili||"";
+  document.getElementById("duzenleAdres").value=c.adres||"";
+  document.getElementById("duzenleLimit").value=c.limit_tutari??"";
+  document.getElementById("duzenleVadeGun").value=c.varsayilan_vade_gun??"";
+  document.getElementById("duzenleRiskNotu").value=c.risk_notu||"";
+  document.getElementById("duzenleModal").classList.add("show");
+}
+function duzenleKapat(){document.getElementById("duzenleModal").classList.remove("show")}
+function modalDisinaTiklandi(e){if(e.target.id==="duzenleModal")duzenleKapat()}
+async function duzenleKaydet(){
+  const isim=document.getElementById("duzenleIsim").value.trim();
+  if(!isim){alert("Ad Soyad / Firma boş bırakılamaz.");return}
+  const btn=document.getElementById("duzenleKaydetBtn");btn.disabled=true;btn.textContent="Kaydediliyor...";
+  const data={
+    isim,
+    telefon:document.getElementById("duzenleTelefon").value.trim(),
+    vergi_no:document.getElementById("duzenleVergiNo").value.trim(),
+    vergi_dairesi:document.getElementById("duzenleVergiDairesi").value.trim(),
+    yetkili:document.getElementById("duzenleYetkili").value.trim(),
+    adres:document.getElementById("duzenleAdres").value.trim(),
+    limit_tutari:Number(document.getElementById("duzenleLimit").value||0),
+    varsayilan_vade_gun:Number(document.getElementById("duzenleVadeGun").value||0),
+    risk_notu:document.getElementById("duzenleRiskNotu").value.trim()
+  };
+  try{
+    await api("/cariler?id=eq."+seciliId,{method:"PATCH",body:JSON.stringify(data)});
+    duzenleKapat();toastGoster("Cari kartı güncellendi.");await yukle();detayGoster(seciliId);
+  }catch(e){alert("Güncelleme hatası: "+e.message)}
+  finally{btn.disabled=false;btn.textContent="✓ Kaydet"}
+}
 
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center shrink-0 text-purple-400">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-sm text-slate-400">Merkez & Servis Ağı</h4>
-                                    <p class="text-base text-white">Tarsus, Mersin <br><span class="text-sm text-slate-400">(Tüm Türkiye'ye Kurulum ve Servis Hizmeti)</span></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <a href="https://wa.me/905337692278" target="_blank" class="mt-8 w-full block text-center bg-[#25D366] hover:bg-[#1DA851] text-white py-3 rounded-lg font-bold transition-colors shadow-lg">
-                            <i class="fa-brands fa-whatsapp text-xl mr-2"></i> WhatsApp'tan Mesaj Gönder
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-white/10 bg-[#020408] pt-12 pb-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-6">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-blue to-brand-amber flex items-center justify-center font-display font-bold text-sm">HİS</div>
-                    <span class="font-display font-bold tracking-wide">OTOMASYON SİSTEMLERİ</span>
-                </div>
-                <div class="flex gap-6 text-sm text-slate-400">
-                    <a href="#ozellikler" class="hover:text-white transition-colors">Sistemler</a>
-                    <a href="#simulasyon" class="hover:text-white transition-colors">Simülasyon</a>
-                    <a href="#hakkimizda" class="hover:text-white transition-colors">Hakkımızda</a>
-                </div>
-            </div>
-            <div class="text-center md:text-left text-xs text-slate-500 border-t border-white/5 pt-6 flex flex-col md:flex-row justify-between">
-                <p>&copy; <script>document.write(new Date().getFullYear())</script> HİS Otomasyon. Tüm Hakları Saklıdır.</p>
-                <p class="mt-2 md:mt-0">Tarsus Tavuk Kümes Otomasyonu & Endüstriyel Panolar</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Floating WhatsApp Butonu -->
-    <a href="https://wa.me/905337692278" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl z-50 floating-whatsapp hover:scale-110 transition-transform">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <!-- JavaScript - Etkileşimler ve Simülasyon -->
-    <script>
-        // Scroll Reveal Animasyonu
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal(); // İlk yüklemede çalıştır
-
-        // Navbar Arka Plan Bulanıklığı
-        window.addEventListener("scroll", function() {
-            var navbar = document.getElementById("navbar");
-            if (window.scrollY > 50) {
-                navbar.classList.add("bg-slate-900/80");
-                navbar.classList.remove("border-b-0");
-                navbar.classList.add("border-b", "border-white/10");
-            } else {
-                navbar.classList.remove("bg-slate-900/80", "border-b", "border-white/10");
-                navbar.classList.add("border-b-0");
-            }
-        });
-
-        // -----------------------------------------------------
-        // CANLI SİMÜLASYON MOTORU (JS)
-        // -----------------------------------------------------
-        
-        // Başlangıç Değerleri
-        let temp = 24.5;
-        let hum = 62.0;
-        let nh3 = 12;
-        let press = 22;
-        let volt = 381;
-        let fanActive = true;
-
-        function updateSimulation() {
-            // Rastgele dalgalanmalar yarat
-            temp = temp + (Math.random() * 0.4 - 0.2); // -0.2 ile +0.2 arası değişim
-            hum = hum + (Math.random() * 1.0 - 0.5);
-            
-            // NH3 ve Basınç yavaş değişir
-            if(Math.random() > 0.7) nh3 = nh3 + (Math.random() > 0.5 ? 1 : -1);
-            if(Math.random() > 0.7) press = press + (Math.random() > 0.5 ? 1 : -1);
-            
-            // Voltaj dalgalanması
-            volt = 380 + Math.floor(Math.random() * 5 - 2);
-
-            // Sınırlandırmalar
-            if(temp > 35) temp = 35; if(temp < 15) temp = 15;
-            if(hum > 90) hum = 90; if(hum < 40) hum = 40;
-            if(nh3 > 30) nh3 = 30; if(nh3 < 5) nh3 = 5;
-            if(press > 40) press = 40; if(press < 10) press = 10;
-
-            // DOM Güncelleme
-            document.getElementById('val-temp').innerHTML = temp.toFixed(1) + '<span class="text-2xl text-slate-500">°C</span>';
-            document.getElementById('bar-temp').style.width = ((temp - 15) / 20 * 100) + '%';
-            
-            document.getElementById('val-hum').innerHTML = hum.toFixed(1) + '<span class="text-2xl text-slate-500">%</span>';
-            document.getElementById('bar-hum').style.width = hum + '%';
-
-            document.getElementById('val-nh3').innerHTML = nh3 + '<span class="text-xl text-slate-500">ppm</span>';
-            document.getElementById('val-press').innerHTML = press + '<span class="text-xl text-slate-500">Pa</span>';
-            document.getElementById('val-volt').innerText = volt + 'V';
-
-            // Otomasyon Karar Senaryosu (Sıcaklık 26'yı geçerse fanları aç, 23 altındaysa ısıtıcıyı aç)
-            const ledFan = document.getElementById('led-fan');
-            const txtFan = document.getElementById('txt-fan');
-            const ledHeat = document.getElementById('led-heat');
-            const txtHeat = document.getElementById('txt-heat');
-
-            if(temp > 25.0) {
-                // Soğutma Modu
-                ledFan.className = "led active-green";
-                txtFan.innerText = "DEVREDE (KADEME 3)";
-                txtFan.className = "text-green-500";
-                
-                ledHeat.className = "led inactive-red";
-                txtHeat.innerText = "KAPALI";
-                txtHeat.className = "text-red-500";
-            } else if (temp < 23.5) {
-                // Isıtma Modu
-                ledFan.className = "led warning-amber";
-                txtFan.innerText = "MİN. HAVALANDIRMA";
-                txtFan.className = "text-amber-500";
-
-                ledHeat.className = "led active-green";
-                txtHeat.innerText = "DEVREDE";
-                txtHeat.className = "text-green-500";
-            } else {
-                // İdeal Aralık
-                ledFan.className = "led active-green";
-                txtFan.innerText = "NORMAL ÇALIŞMA";
-                txtFan.className = "text-green-500";
-
-                ledHeat.className = "led inactive-red";
-                txtHeat.innerText = "KAPALI";
-                txtHeat.className = "text-red-500";
-            }
-
-            // Saat Güncellemesi
-            const now = new Date();
-            document.getElementById('sim-time').innerText = now.toLocaleTimeString('tr-TR');
-        }
-
-        // Simülasyonu her 1.5 saniyede bir tetikle
-        setInterval(updateSimulation, 1500);
-        updateSimulation(); // İlk çalışmayı anında yap
-    </script>
+function hareketAc(tip="borc"){
+  duzenlenecekHareketId=null;
+  document.getElementById("hareketModalBaslik").textContent=tip==="alacak"?"Yeni Tahsilat / Alacak":"Yeni Borç / Fatura";
+  document.getElementById("hareketTip").value=tip;
+  document.getElementById("hareketTutar").value="";
+  document.getElementById("hareketTarih").value=localISODate();
+  document.getElementById("hareketVade").value="";
+  document.getElementById("hareketBelgeNo").value="";
+  document.getElementById("hareketYontem").value="";
+  document.getElementById("hareketAciklama").value="";
+  document.getElementById("hareketKaydetBtn").textContent="✓ Hareketi Kaydet";
+  document.getElementById("hareketModal").classList.add("show");
+  hareketTipDegisti();
+}
+function hareketTipDegisti(){
+  const tip=document.getElementById("hareketTip").value;
+  const c=cariler.find(x=>Number(x.id)===Number(seciliId));
+  const vade=document.getElementById("hareketVade");
+  const hint=document.getElementById("vadeHint");
+  if(tip==="alacak"){
+    vade.value="";vade.disabled=true;
+    if(hint)hint.textContent="Tahsilat işleminde vade kullanılmaz.";
+  }else{
+    vade.disabled=false;
+    const gun=Number(c?.varsayilan_vade_gun||0);
+    if(gun>0 && !duzenlenecekHareketId){
+      const d=new Date(document.getElementById("hareketTarih").value+"T00:00:00");d.setDate(d.getDate()+gun);
+      vade.value=localISODate(d);
+      if(hint)hint.textContent=`Cari kartındaki ${gun} günlük varsayılan vade uygulandı. İstersen değiştirebilirsin.`;
+    }else if(hint)hint.textContent="Cari kartındaki varsayılan vade otomatik uygulanır.";
+  }
+}
+function hareketKapat(){document.getElementById("hareketModal").classList.remove("show")}
+function hareketModalDisinaTiklandi(e){if(e.target.id==="hareketModal")hareketKapat()}
+function hareketDuzenle(id){
+  const h=hareketler.find(x=>Number(x.id)===Number(id));if(!h)return;
+  duzenlenecekHareketId=id;
+  document.getElementById("hareketModalBaslik").textContent="Hareketi Düzenle";
+  document.getElementById("hareketTip").value=h.hareket_tipi||((Number(h.alacak||0)>0)?"alacak":"borc");
+  document.getElementById("hareketTutar").value=Number(h.borc||h.alacak||0);
+  document.getElementById("hareketTarih").value=h.islem_tarihi||h.created_at?.slice(0,10)||"";
+  document.getElementById("hareketVade").value=h.vade_tarihi||"";
+  document.getElementById("hareketBelgeNo").value=h.belge_no||"";
+  document.getElementById("hareketYontem").value=h.odeme_yontemi||"";
+  document.getElementById("hareketAciklama").value=h.aciklama||"";
+  document.getElementById("hareketKaydetBtn").textContent="✓ Değişiklikleri Kaydet";
+  document.getElementById("hareketModal").classList.add("show");
+  hareketTipDegisti();
+}
+async function hareketKaydet(){
+  if(!seciliId)return;
+  const tip=document.getElementById("hareketTip").value;
+  const tutar=Number(document.getElementById("hareketTutar").value);
+  const aciklama=document.getElementById("hareketAciklama").value.trim();
+  if(!tutar||tutar<=0){alert("Geçerli bir tutar girin.");return}
+  if(!aciklama){alert("Açıklama girin.");return}
+  const data={
+    cari_id:Number(seciliId),
+    hareket_tipi:tip,
+    aciklama,
+    borc:tip==="borc"?tutar:0,
+    alacak:tip==="alacak"?tutar:0,
+    islem_tarihi:document.getElementById("hareketTarih").value||localISODate(),
+    vade_tarihi:document.getElementById("hareketVade").value||null,
+    belge_no:document.getElementById("hareketBelgeNo").value.trim(),
+    odeme_yontemi:document.getElementById("hareketYontem").value
+  };
+  const btn=document.getElementById("hareketKaydetBtn");btn.disabled=true;btn.textContent="Kaydediliyor...";
+  try{
+    if(duzenlenecekHareketId){
+      await api("/hareketler?id=eq."+duzenlenecekHareketId,{method:"PATCH",body:JSON.stringify(data)});
+      toastGoster("Hareket güncellendi.");
+    }else{
+      await api("/hareketler",{method:"POST",body:JSON.stringify(data)});
+      toastGoster("Finansal hareket kaydedildi.");
+    }
+    hareketKapat();await yukle();detayGoster(seciliId);
+  }catch(e){alert("Hareket kaydedilemedi: "+e.message)}
+  finally{btn.disabled=false}
+}
+async function hareketSil(id){
+  if(!confirm("Bu finansal hareketi silmek istediğinize emin misiniz?"))return;
+  try{
+    await api("/hareketler?id=eq."+id,{method:"DELETE"});
+    toastGoster("Hareket silindi.");await yukle();detayGoster(seciliId);
+  }catch(e){alert("Hareket silinemedi: "+e.message)}
+}
+async function cariSil(){
+  if(!seciliId)return;
+  if(!confirm("Bu cariyi ve bu cariye ait tüm finansal hareketleri silmek istediğinize emin misiniz?\n\nBu işlem geri alınamaz."))return;
+  try{
+    await api("/hareketler?cari_id=eq."+seciliId,{method:"DELETE"});
+    await api("/cariler?id=eq."+seciliId,{method:"DELETE"});
+    seciliId=null;document.getElementById("seciliCari").textContent="Cari seçin";
+    document.getElementById("telefonGoster").textContent="";
+    document.getElementById("silBtn").style.display="none";
+    document.getElementById("duzenleBtn").style.display="none";
+    document.getElementById("cariDetay").innerHTML='<div class="empty">Soldan bir cari seçin.</div>';
+    await yukle();
+  }catch(e){alert("Silme hatası: "+e.message)}
+}
+function yenile(){yukle()}
+function durumMesaji(m,hata=false){const e=document.getElementById("status");e.textContent=m;e.style.color=hata?"#dc2626":"#16a34a";setTimeout(()=>e.textContent="",3000)}
+function toastGoster(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2800)}
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){duzenleKapat();hareketKapat()}})
+yukle();
+</script>
+<style>body{font-family:Arial;padding:30px}table{width:100%;border-collapse:collapse}th,td{padding:8px;border-bottom:1px solid #ddd;text-align:left}h1{margin-bottom:5px}.sum{margin:15px 0;font-weight:bold}</style>
+<script>
+// ==========================
+// V3 — FATURA / TAHSİLAT / FİNANS MOTORU
+// Mevcut Supabase tablolarını kullanır. Yeni tablo gerektirmez.
+// Tahsilatlar, kayıt tarih sırasına göre açık faturaları FIFO mantığıyla kapatır.
+// ==========================
+function hareketTarihi(x){return x.islem_tarihi||x.created_at?.slice(0,10)||'1970-01-01'}
+function siraliHareketler(id){return hareketler.filter(x=>Number(x.cari_id)===Number(id)).slice().sort((a,b)=>{
+  const da=movDate(a),db=movDate(b); return da-db || Number(a.id||0)-Number(b.id||0);
+})}
+function movDate(x){const d=new Date((x.islem_tarihi||x.created_at?.slice(0,10)||'1970-01-01')+'T00:00:00');return d.getTime()}
+function fifoHesapla(id){
+  const events=siraliHareketler(id), invoices=[], allocations=[], credits=[];
+  const round=n=>Math.round((Number(n)||0)*100)/100;
+  for(const x of events){
+    const amount=round(x.borc);
+    if(amount>0){
+      const inv={id:x.id,date:hareketTarihi(x),due:x.vade_tarihi||null,doc:x.belge_no||'',desc:x.aciklama||'',amount,paid:0,remaining:amount,allocations:[]};
+      // Önceden oluşmuş avans/alacak varsa yeni faturaya uygula.
+      let credit=credits.reduce((s,c)=>s+c.remaining,0);
+      if(credit>0){
+        const use=Math.min(credit,inv.remaining);inv.paid=round(inv.paid+use);inv.remaining=round(inv.remaining-use);
+        let left=use;
+        for(const c of credits){if(left<=0)break;const u=Math.min(left,c.remaining);c.remaining=round(c.remaining-u);left=round(left-u);allocations.push({paymentId:c.paymentId,invoiceId:inv.id,amount:u});inv.allocations.push({paymentId:c.paymentId,amount:u});}
+      }
+      invoices.push(inv);
+    }
+    const payment=round(x.alacak);
+    if(payment>0){
+      let left=payment;
+      const open=invoices.filter(i=>i.remaining>0).sort((a,b)=>new Date((a.due||a.date)+'T00:00:00')-new Date((b.due||b.date)+'T00:00:00')||a.id-b.id);
+      for(const inv of open){if(left<=0)break;const use=Math.min(left,inv.remaining);inv.paid=round(inv.paid+use);inv.remaining=round(inv.remaining-use);inv.allocations.push({paymentId:x.id,amount:use});allocations.push({paymentId:x.id,invoiceId:inv.id,amount:use});left=round(left-use);}
+      if(left>0)credits.push({paymentId:x.id,remaining:left});
+    }
+  }
+  const creditTotal=round(credits.reduce((s,c)=>s+c.remaining,0));
+  return {invoices,allocations,creditTotal};
+}
+function acikFaturaMotoru(id){return fifoHesapla(id).invoices.filter(i=>i.remaining>0.009)}
+function faturaVadeSinifi(inv){
+  if(!inv.due)return {text:'Vade yok',cls:'neutral',days:null};
+  const t=new Date();t.setHours(0,0,0,0);const d=new Date(inv.due+'T00:00:00');const diff=Math.round((d-t)/86400000);
+  if(diff<0)return {text:Math.abs(diff)+' gün gecikmiş',cls:'borc',days:diff};
+  if(diff===0)return {text:'Bugün vadesi',cls:'borc',days:0};
+  if(diff<=7)return {text:diff+' gün kaldı',cls:'warning',days:diff};
+  return {text:diff+' gün kaldı',cls:'neutral',days:diff};
+}
+function faturaDurum(inv){
+  if(inv.remaining<=0.009)return ['KAPALI','pill-closed'];
+  if(inv.paid>0){const vd=faturaVadeSinifi(inv);return vd.days!==null&&vd.days<0?['KISMEN / GECİKMİŞ','pill-overdue']:['KISMEN ÖDENDİ','pill-partial'];}
+  const vd=faturaVadeSinifi(inv);return vd.days!==null&&vd.days<0?['VADESİ GEÇMİŞ','pill-overdue']:['AÇIK','pill-open'];
+}
+function acikFaturaOzet(id){
+  const m=fifoHesapla(id);const all=m.invoices;const open=all.filter(x=>x.remaining>0.009);
+  const overdue=open.filter(x=>{const v=faturaVadeSinifi(x);return v.days!==null&&v.days<0});
+  const due7=open.filter(x=>{const v=faturaVadeSinifi(x);return v.days!==null&&v.days>=0&&v.days<=7});
+  return {all,open,overdue,due7,openTotal:open.reduce((s,x)=>s+x.remaining,0),overdueTotal:overdue.reduce((s,x)=>s+x.remaining,0),due7Total:due7.reduce((s,x)=>s+x.remaining,0),credit:m.creditTotal};
+}
+function acikFaturalarHTML(id){
+  const o=acikFaturaOzet(id);
+  const rows=o.open.slice().sort((a,b)=>new Date((a.due||a.date)+'T00:00:00')-new Date((b.due||b.date)+'T00:00:00')).map(inv=>{
+    const vd=faturaVadeSinifi(inv),st=faturaDurum(inv);const cls=vd.days!==null&&vd.days<0?'invoice-overdue':inv.paid>0?'invoice-partial':'invoice-open';
+    return `<tr class="${cls}"><td>${tarihTR(inv.date)}</td><td><strong>${esc(inv.doc||'Belgesiz')}</strong><br><small>${esc(inv.desc)}</small></td><td>${inv.due?tarihTR(inv.due):'-'}<br><small class="${vd.cls}">${vd.text}</small></td><td class="borc">${tl(inv.amount)}</td><td class="alacak">${tl(inv.paid)}</td><td class="borc"><strong>${tl(inv.remaining)}</strong></td><td><span class="status-pill ${st[1]}">${st[0]}</span></td><td><button class="action-link" onclick="tahsilatFaturaAc(${inv.id},${inv.remaining})">Tahsilat</button></td></tr>`;
+  }).join('');
+  const tableHtml = o.open.length ? '<div style="overflow:auto"><table class="invoice-table"><thead><tr><th>Fatura Tarihi</th><th>Fatura / Açıklama</th><th>Vade</th><th>Fatura Tutarı</th><th>Ödenen</th><th>Kalan</th><th>Durum</th><th></th></tr></thead><tbody>'+rows+'</tbody></table></div>' : '<div class="empty">Açık fatura bulunmuyor. Cari tamamen kapalı veya alacaklı.</div>';
+  const creditHtml = o.credit>0.009 ? '<div style="padding:12px 15px;background:#ecfdf5;color:#166534;font-size:12px">💰 Kullanılmamış tahsilat / avans: <strong>'+tl(o.credit)+'</strong></div>' : '';
+  return '<div class="invoice-wrap"><div class="invoice-head"><div><strong>📑 Açık Faturalar / Borçlar</strong><br><span>FIFO tahsilat mantığı: girilen tahsilatlar önce en eski açık borca uygulanır.</span></div><div class="actions"><button class="muted" onclick="acikFaturaRaporu()">📄 Açık Fatura Raporu</button><button class="success" onclick="hareketAc(\'alacak\')">+ Tahsilat</button></div></div><div class="invoice-summary"><div class="sum"><small>Açık Fatura</small><strong>'+o.open.length+'</strong></div><div class="sum"><small>Açık Bakiye</small><strong class="borc">'+tl(o.openTotal)+'</strong></div><div class="sum"><small>Vadesi Geçmiş</small><strong class="borc">'+tl(o.overdueTotal)+'</strong></div><div class="sum"><small>7 Gün İçinde</small><strong>'+tl(o.due7Total)+'</strong></div></div>'+tableHtml+creditHtml+'</div>';
+}
+function tahsilatFaturaAc(id,remaining){
+  hareketAc('alacak');
+  const inv=fifoHesapla(seciliId).invoices.find(x=>Number(x.id)===Number(id));
+  if(inv){document.getElementById('hareketTutar').value=Number(remaining).toFixed(2);document.getElementById('hareketAciklama').value=`${inv.doc||'Fatura'} tahsilatı`;
+    const hint=document.getElementById('vadeHint');if(hint)hint.textContent=`Bu tutar ${inv.doc||'seçilen açık faturanın'} kalanından önerildi. Tahsilatlar FIFO mantığıyla otomatik dağıtılır.`;
+  }
+}
+function detayGosterV3(id){
+  seciliId=id;const c=cariler.find(x=>Number(x.id)===Number(id));if(!c)return;
+  const h=cariHesap(id),limit=Number(c.limit_tutari||0),o=acikFaturaOzet(id);
+  const today=new Date();today.setHours(0,0,0,0);const plus7=new Date(today);plus7.setDate(plus7.getDate()+7);
+  const open=o.open, overdueTotal=o.overdueTotal,due7Total=o.due7Total;
+  const limitPct=limit>0?Math.min(100,Math.max(0,(h.net/limit)*100)):0;
+  let riskBadge=limit&&h.net>limit?'🔴 LİMİT AŞILDI':overdueTotal>0?'🔴 TAHSİLAT RİSKİ':limit&&h.net>limit*.8?'🟠 LİMİTE YAKLAŞTI':h.net>0?'🟡 Borçlu':'🟢 Kapalı / Alacaklı';
+  document.getElementById('seciliCari').textContent=c.isim;document.getElementById('telefonGoster').textContent=c.telefon||'Telefon yok';document.getElementById('silBtn').style.display='block';document.getElementById('duzenleBtn').style.display='block';
+  document.getElementById('cariDetay').innerHTML=`
+  <div class='detail-grid'><div class='info'><small>Vergi No / T.C.</small><strong>${esc(c.vergi_no||'-')}</strong></div><div class='info'><small>Vergi Dairesi</small><strong>${esc(c.vergi_dairesi||'-')}</strong></div><div class='info'><small>Yetkili</small><strong>${esc(c.yetkili||'-')}</strong></div><div class='info'><small>Adres</small><strong>${esc(c.adres||'-')}</strong></div><div class='info'><small>Cari Limiti</small><strong>${limit?tl(limit):'Tanımlı değil'}</strong></div><div class='info'><small>Varsayılan Vade</small><strong>${c.varsayilan_vade_gun?c.varsayilan_vade_gun+' gün':'Tanımlı değil'}</strong></div></div>
+  <div class='finance-grid'><div class='finance-box'><small>Toplam Borç</small><strong class='borc'>${tl(h.b)}</strong></div><div class='finance-box'><small>Toplam Tahsilat / Alacak</small><strong class='alacak'>${tl(h.a)}</strong></div><div class='finance-box ${limit&&h.net>limit?'overdue':''}'><small>Net Bakiye</small><strong>${durum(h.b,h.a)}</strong><div style='margin-top:7px'>${limitDurumu(c,h.net)}</div></div></div>
+  <div class='report-grid'><div class='report-box ${overdueTotal?'overdue':''}'><small>Açık / Vadesi Geçmiş</small><strong class='${overdueTotal?'borc':''}'>${tl(overdueTotal)}</strong></div><div class='report-box'><small>7 Gün İçinde</small><strong>${tl(due7Total)}</strong></div><div class='report-box'><small>Risk Durumu</small><strong>${riskBadge}</strong>${limit?`<div class='risk-line'><span class='small'>Limit kullanımı</span><span class='small'>${limitPct.toFixed(0)}%</span></div><div class='progress'><span style='width:${limitPct}%'></span></div>`:''}</div></div>
+  ${c.risk_notu?`<div class='finance-box warning' style='margin-bottom:15px'><strong>⚠ Risk Notu</strong><div style='margin-top:6px'>${esc(c.risk_notu)}</div></div>`:''}
+  <div class='section-title'>Vade Yaşlandırma</div><div class='aging-grid'><div class='aging-box'><small>1–7 gün</small><strong class='borc'>${tl(vadeYaslandirma(h.hs).g1_7)}</strong></div><div class='aging-box'><small>8–30 gün</small><strong class='borc'>${tl(vadeYaslandirma(h.hs).g8_30)}</strong></div><div class='aging-box'><small>31–60 gün</small><strong class='borc'>${tl(vadeYaslandirma(h.hs).g31_60)}</strong></div><div class='aging-box'><small>61–90 gün</small><strong class='borc'>${tl(vadeYaslandirma(h.hs).g61_90)}</strong></div><div class='aging-box'><small>90+ gün</small><strong class='borc'>${tl(vadeYaslandirma(h.hs).g90)}</strong></div></div>
+  ${acikFaturalarHTML(id)}
+  <div class='section-title'>Tahsilat Dağılımı</div><div class='method-grid'>${Object.entries(tahsilatYontemleri(h.hs)).filter(([,v])=>v>0).map(([k,v])=>`<div class='method-box'><small>${esc(k)}</small><strong class='alacak'>${tl(v)}</strong></div>`).join('')||`<div class='method-box'><small>Henüz tahsilat yok</small><strong>₺0,00</strong></div>`}</div>
+  <div class='actions' style='margin:18px 0'><button class='primary' onclick="hareketAc('borc')">+ Borç / Fatura</button><button class='success' onclick="hareketAc('alacak')">+ Tahsilat / Alacak</button><button class='muted' onclick='finansalAnalizGoster()'>📈 Finansal Analiz</button></div>
+  <div class='section-title'>Cari Ekstresi</div><div class='filters'><select id='hareketFiltre' onchange='hareketleriCiz()'><option value='hepsi'>Tüm Hareketler</option><option value='borc'>Sadece Borç</option><option value='alacak'>Sadece Tahsilat</option><option value='overdue'>Vadesi Geçen</option><option value='due7'>7 Gün İçinde</option></select><input id='ekstreArama' placeholder='Açıklama / belge ara...' oninput='hareketleriCiz()'><div></div><div></div><button class='muted' onclick='ekstreCSV()'>⬇ CSV</button><button class='muted' onclick='ekstreYazdir()'>🖨 Ekstre Yazdır</button></div><div id='hareketTablosu'></div>`;
+  hareketleriCiz();listele();finansOzet();
+}
+function hareketKaydetV3(){return hareketKaydet.apply(this,arguments)}
+// Tahsilat açıldığında kullanıcıya mevcut açık bakiyeyi göster.
+const _hareketAcV2=hareketAc;
+hareketAc=function(tip='borc'){
+  _hareketAcV2(tip);
+  const hint=document.getElementById('vadeHint');
+  if(tip==='alacak'&&hint){const o=acikFaturaOzet(seciliId);hint.textContent=o.open.length?`Açık fatura: ${o.open.length} adet · Kalan: ${tl(o.openTotal)} · Tahsilat FIFO ile en eski açık faturadan kapatılır.`:'Açık fatura yok. Girilen tutar avans/alacak olarak kalabilir.';}
+}
+const _detayEski=detayGoster;detayGoster=detayGosterV3;
+function acikFaturaRaporu(){
+  if(!seciliId)return;const c=cariler.find(x=>Number(x.id)===Number(seciliId)),o=acikFaturaOzet(seciliId);const w=window.open('','_blank');
+  const rows=o.open.map(inv=>{const vd=faturaVadeSinifi(inv),st=faturaDurum(inv);return `<tr><td>${tarihTR(inv.date)}</td><td>${esc(inv.doc||'Belgesiz')}</td><td>${esc(inv.desc)}</td><td>${inv.due?tarihTR(inv.due):'-'}</td><td>${tl(inv.amount)}</td><td>${tl(inv.paid)}</td><td><strong>${tl(inv.remaining)}</strong></td><td>${st[0]} ${vd.text}</td></tr>`}).join('');
+  w.document.write(`<html lang='tr'><head><meta charset='utf-8'><title>${esc(c.isim)} - Açık Faturalar</title><style>body{font-family:Arial;padding:30px;color:#172033}table{width:100%;border-collapse:collapse;margin-top:20px}th,td{padding:9px;border-bottom:1px solid #ddd;text-align:left;font-size:12px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.card{padding:14px;background:#f5f7fa;border-radius:10px}.v{font-size:19px;font-weight:800;margin-top:5px}@media(max-width:800px){.cards{grid-template-columns:1fr 1fr}}</style></head><body><h1>${esc(c.isim)} — Açık Faturalar</h1><div>${esc(c.telefon||'')} · ${esc(c.vergi_no||'')}</div><div class='cards'><div class='card'>Açık Fatura<div class='v'>${o.open.length}</div></div><div class='card'>Açık Bakiye<div class='v'>${tl(o.openTotal)}</div></div><div class='card'>Vadesi Geçmiş<div class='v'>${tl(o.overdueTotal)}</div></div><div class='card'>7 Gün İçinde<div class='v'>${tl(o.due7Total)}</div></div></div><table><thead><tr><th>Tarih</th><th>Belge</th><th>Açıklama</th><th>Vade</th><th>Tutar</th><th>Ödenen</th><th>Kalan</th><th>Durum</th></tr></thead><tbody>${rows||`<tr><td colspan='8'>Açık fatura bulunmuyor.</td></tr>`}</tbody></table><script>window.print()<\/script></body></html>`);w.document.close();
+}
+function genelFinansRaporu(){
+  const all=genellerFinansSatirlari().map(x=>{const o=acikFaturaOzet(x.c.id);return {...x,o}}),totalB=all.reduce((s,x)=>s+x.h.b,0),totalA=all.reduce((s,x)=>s+x.h.a,0),net=totalB-totalA,open=all.reduce((s,x)=>s+x.o.openTotal,0),over=all.reduce((s,x)=>s+x.o.overdueTotal,0),due7=all.reduce((s,x)=>s+x.o.due7Total,0),limit=all.filter(x=>x.limit&&x.h.net>x.limit).length;
+  const rows=all.sort((a,b)=>b.o.openTotal-a.o.openTotal).map((x,i)=>`<tr><td>${i+1}</td><td><strong>${esc(x.c.isim)}</strong><br><small>${esc(x.c.telefon||'')}</small></td><td>${tl(x.h.b)}</td><td>${tl(x.h.a)}</td><td><strong>${tl(x.h.net)}</strong></td><td>${tl(x.o.openTotal)}</td><td>${tl(x.o.overdueTotal)}</td><td>${tl(x.o.due7Total)}</td><td>${x.limit?(x.h.net>x.limit?'🔴 AŞILDI':x.h.net>x.limit*.8?'🟠 YAKIN':'🟢 Uygun'):'-'}</td></tr>`).join('');
+  const w=window.open('','_blank');w.document.write(`<html lang='tr'><head><meta charset='utf-8'><title>Genel Cari Finans Raporu</title><style>body{font-family:Arial;padding:30px;color:#172033}.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}.card{padding:13px;background:#f5f7fa;border-radius:10px}.v{font-size:18px;font-weight:800;margin-top:5px}table{width:100%;border-collapse:collapse;margin-top:20px}th,td{padding:8px;border-bottom:1px solid #ddd;text-align:left;font-size:11px}@media(max-width:900px){.cards{grid-template-columns:1fr 1fr}}</style></head><body><h1>Genel Cari Finans Raporu</h1><div>${new Date().toLocaleDateString('tr-TR')} · FIFO açık fatura analizi</div><div class='cards'><div class='card'>Cari<div class='v'>${all.length}</div></div><div class='card'>Toplam Borç<div class='v'>${tl(totalB)}</div></div><div class='card'>Tahsilat<div class='v'>${tl(totalA)}</div></div><div class='card'>Net Borç<div class='v'>${tl(net)}</div></div><div class='card'>Açık Fatura<div class='v'>${tl(open)}</div></div><div class='card'>Vadesi Geçmiş<div class='v'>${tl(over)}</div></div></div><p><strong>7 gün içinde:</strong> ${tl(due7)} &nbsp; | &nbsp; <strong>Limit aşımı:</strong> ${limit}</p><table><thead><tr><th>#</th><th>Cari</th><th>Borç</th><th>Tahsilat</th><th>Net</th><th>Açık</th><th>Gecikmiş</th><th>7 Gün</th><th>Risk</th></tr></thead><tbody>${rows||`<tr><td colspan='9'>Cari yok.</td></tr>`}</tbody></table><script>window.print()<\/script></body></html>`);w.document.close();
+}
+// İlk V3 render: mevcut veriler zaten yüklendiyse seçili cariyi yeniden çiz.
+setTimeout(()=>{if(seciliId&&cariler.length)detayGosterV3(seciliId)},350);
+</script>
 </body>
 </html>
