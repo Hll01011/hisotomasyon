@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Etiketleri -->
-    <title>Tavuk Kümes Otomasyonu, Pano İmalatı & Acil Arıza Servisi | HİS Otomasyon - Bekir Şener</title>
-    <meta name="description" content="Tarsus ve tüm Türkiye'ye kümes iklimlendirme panoları, özel otomasyon çözümleri, parça pano revizyonu, arıza tespiti ve 7/24 acil servis hizmeti. Bekir Şener güvencesiyle 30 yıllık tecrübe.">
-    <meta name="keywords" content="kümes otomasyonu, tavuk kümes panosu, acil kümes arıza servisi, pano tamiri, iklimlendirme panosu, tarsus otomasyon, parça pano imalatı, bekir şener otomasyon, kümes havalandırma">
+    <title>Tarsus Kesimlik Tavuk Kümes Otomasyonu & Panoları | HİS Otomasyon - Bekir Şener</title>
+    <meta name="description" content="Tarsus ve tüm Türkiye'ye anahtar teslim kesimlik tavuk (broiler) kümes otomasyon sistemleri, hassas iklimlendirme panoları ve akıllı kümes çözümleri. Bekir Şener güvencesiyle 30 yıllık tecrübe.">
+    <meta name="keywords" content="kesimlik tavuk otomasyonu, broiler kümes panoları, tarsus kümes otomasyon, iklimlendirme panosu, akıllı tavuk çiftliği, anahtar teslim kümes otomasyonu türkiye, bekir şener otomasyon, kümes havalandırma pano, tarsus otomasyon">
     <meta name="author" content="HİS Otomasyon Sistemleri - Bekir Şener">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph / WhatsApp -->
+    <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Kümes Otomasyonu, Pano Sistemleri & Acil Arıza Servisi | HİS Otomasyon">
-    <meta property="og:description" content="Sıfırdan kümes otomasyonu, parça pano işleri, revizyon ve 7/24 acil arıza desteği. 30 Yıllık Bekir Şener Güvencesi.">
+    <meta property="og:title" content="Tarsus Kesimlik Tavuk Kümes Otomasyonu & Panoları | HİS Otomasyon">
+    <meta property="og:description" content="30 Yıllık Tecrübe ile Kesimlik Tavuk (Broiler) Kümeslerinde Anahtar Teslim Otomasyon ve İklimlendirme Panoları.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80&w=1200&auto=format&fit=crop">
 
     <!-- Tailwind CSS & FontAwesome CDN -->
@@ -50,17 +50,28 @@
         "latitude": 36.9167,
         "longitude": 34.8958
       },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "sameAs": [
+        "https://wa.me/905337692278"
+      ],
       "founder": {
         "@type": "Person",
         "name": "Bekir Şener",
         "jobTitle": "Kurucu / Otomasyon Uzmanı",
-        "description": "30 Yıllık Kümes Otomasyonu, Pano İmalatı ve Arıza Tespit Deneyimi"
+        "description": "30 Yıllık Kümes Otomasyonu ve Pano Tasarım Deneyimi"
       },
       "areaServed": {
         "@type": "Country",
         "name": "Türkiye"
       },
-      "description": "Tarsus merkezli, tüm Türkiye'ye tavuk kümesi otomasyon panoları, parça işler, pano yenileme ve 7/24 acil arıza tespiti hizmeti."
+      "description": "Tarsus merkezli, tüm Türkiye'ye anahtar teslim kesimlik tavuk (broiler) kümes iklimlendirme, havalandırma ve otomasyon panoları kurulum hizmeti."
     }
     </script>
 
@@ -73,12 +84,17 @@
                     },
                     colors: {
                         brand: {
-                            500: '#f97316', // Amber / Orange
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            500: '#f97316', // Amber / Orange Accent
                             600: '#ea580c',
+                            900: '#7c2d12',
                         },
                         tech: {
+                            50: '#f0f9ff',
                             500: '#0ea5e9', // Cyan / Tech Blue
                             600: '#0284c7',
+                            900: '#0c4a6e',
                         }
                     }
                 }
@@ -88,7 +104,7 @@
 
     <style>
         .glass-panel {
-            background: rgba(15, 23, 42, 0.88);
+            background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -121,6 +137,45 @@
             0% { background-color: rgba(220, 38, 38, 0.2); border-color: rgba(239, 68, 68, 0.8); }
             100% { background-color: rgba(220, 38, 38, 0.6); border-color: rgba(255, 255, 255, 0.9); }
         }
+
+        /* MOBİL / DOKUNMATİK İYİLEŞTİRMELER */
+        html { scroll-behavior: smooth; }
+        body { min-width: 320px; }
+        button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
+        button { touch-action: manipulation; }
+        .safe-bottom { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+        .mobile-menu-open { overflow: hidden; }
+        .mobile-menu-panel { transform: translateY(-12px); opacity: 0; pointer-events: none; transition: .25s ease; }
+        .mobile-menu-panel.is-open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+        .sensor-control-btn { min-width: 46px; min-height: 46px; }
+        .sensor-card { transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+        .sensor-card:active { transform: scale(.985); }
+        .status-active { box-shadow: 0 0 0 1px rgba(56,189,248,.15), 0 10px 35px rgba(14,165,233,.12); }
+        .alarm-history { scrollbar-width: thin; }
+        .alarm-history::-webkit-scrollbar { width: 5px; }
+        .alarm-history::-webkit-scrollbar-thumb { background: rgba(148,163,184,.35); border-radius: 20px; }
+        .toast { transform: translate(-50%, 18px); opacity: 0; pointer-events: none; transition: .25s ease; }
+        .toast.show { transform: translate(-50%, 0); opacity: 1; }
+        @media (max-width: 767px) {
+            .hero-title { font-size: clamp(2rem, 9vw, 3.1rem); }
+            .glass-panel { border-radius: 1.25rem; }
+            #simulasyon .glass-panel { padding: 1rem; }
+            #simulasyon .grid.sm\:grid-cols-2 { gap: .75rem; }
+            #simulasyon .digital-number { font-size: 1.55rem; }
+            #simulasyon .sensor-control-btn { min-width: 52px; min-height: 52px; }
+            #simulasyon .alarm-flash { align-items: flex-start; }
+            .mobile-full { width: 100%; }
+            .mobile-sticky-actions {
+                position: sticky; bottom: .75rem; z-index: 30;
+                background: rgba(2,6,23,.90); backdrop-filter: blur(14px);
+                border: 1px solid rgba(148,163,184,.18);
+                border-radius: 1rem; padding: .65rem;
+            }
+            .stage-tabs { justify-content: flex-start; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+        }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white relative overflow-x-hidden">
@@ -141,35 +196,50 @@
                 </div>
                 <div class="flex flex-col">
                     <span class="text-lg font-bold tracking-wider text-white group-hover:text-brand-500 transition-colors">HİS OTOMASYON</span>
-                    <span class="text-[10px] text-slate-400 font-medium tracking-widest uppercase">Kümes Panoları & Arıza Servisi</span>
+                    <span class="text-[10px] text-slate-400 font-medium tracking-widest uppercase">Sistemleri & Kümes Panoları</span>
                 </div>
             </a>
 
             <!-- MASAÜSTÜ MENÜ -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#hizmetler" class="hover:text-brand-500 transition-colors">Neler Yapıyoruz?</a>
+            <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
                 <a href="#simulasyon" class="hover:text-brand-500 transition-colors flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Arıza & İklim Testi
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Canlı Panel
                 </a>
-                <a href="#parca-isler" class="hover:text-brand-500 transition-colors">Parça İşler & Revizyon</a>
-                <a href="#neden-biz" class="hover:text-brand-500 transition-colors">Bekir Şener</a>
-                <a href="#iletisim" class="hover:text-brand-500 transition-colors">İletişim & Ulaşım</a>
+                <a href="#dongu" class="hover:text-brand-500 transition-colors">Broiler Gelişim</a>
+                <a href="#sistemler" class="hover:text-brand-500 transition-colors">Sistemlerimiz</a>
+                <a href="#neden-biz" class="hover:text-brand-500 transition-colors">Neden HİS?</a>
+                <a href="#iletisim" class="hover:text-brand-500 transition-colors">İletişim</a>
             </nav>
 
-            <!-- WHATSAPP CTA BUTTON -->
-            <div class="flex items-center gap-3">
-                <a href="https://wa.me/905337692278?text=Merhaba,%20k%C3%BCmes%20otomasyonu%20/%20pano%20ar%C4%B1zas%C4%B1%20hakk%C1%B1nda%20bilgi%20almak%20istiyorum." 
-                   target="_blank" 
-                   class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl font-semibold text-sm flex items-center gap-2 transition-all shadow-lg shadow-emerald-900/30 hover:scale-105">
+            <!-- SAĞ AKSİYONLAR -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <a href="https://wa.me/905337692278?text=Merhaba,%20kesimlik%20tavuk%20k%C3%BCmes%20otomasyonu%20ve%20pano%20fiyatlar%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." 
+                   target="_blank" rel="noopener"
+                   class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 sm:px-4 py-2.5 rounded-xl font-semibold text-sm flex items-center gap-2 transition-all shadow-lg shadow-emerald-900/30 hover:scale-105">
                     <i class="fa-brands fa-whatsapp text-lg"></i>
                     <span class="hidden sm:inline">0533 769 22 78</span>
                 </a>
+                <button id="mobile-menu-btn" type="button" aria-label="Menüyü aç" aria-expanded="false"
+                        onclick="toggleMobileMenu()"
+                        class="lg:hidden w-11 h-11 rounded-xl bg-slate-900 border border-slate-700 text-white flex items-center justify-center text-lg">
+                    <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
+                </button>
             </div>
-        </div>
+
+            <!-- MOBİL MENÜ -->
+            <div id="mobile-menu-panel" class="mobile-menu-panel lg:hidden absolute left-0 right-0 top-full border-t border-slate-800 bg-slate-950/95 backdrop-blur-xl shadow-2xl">
+                <nav class="px-4 py-4 space-y-2">
+                    <a onclick="closeMobileMenu()" href="#simulasyon" class="block rounded-xl px-4 py-3 bg-slate-900 text-white">🎛️ Canlı Panel Simülatörü</a>
+                    <a onclick="closeMobileMenu()" href="#dongu" class="block rounded-xl px-4 py-3 hover:bg-slate-900 text-slate-200">🐔 Broiler Gelişim</a>
+                    <a onclick="closeMobileMenu()" href="#sistemler" class="block rounded-xl px-4 py-3 hover:bg-slate-900 text-slate-200">⚙️ Sistemlerimiz</a>
+                    <a onclick="closeMobileMenu()" href="#neden-biz" class="block rounded-xl px-4 py-3 hover:bg-slate-900 text-slate-200">🛡️ Neden HİS?</a>
+                    <a onclick="closeMobileMenu()" href="#iletisim" class="block rounded-xl px-4 py-3 hover:bg-slate-900 text-slate-200">📞 İletişim</a>
+                </nav>
+            </div>
     </header>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden z-10">
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-12 gap-12 items-center">
                 
@@ -177,79 +247,73 @@
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
                     
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 text-xs text-slate-300">
-                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span class="font-semibold text-emerald-400">7/24 Acil Arıza Tespit & Saha Desteği</span> • Tarsus & Tüm Türkiye
+                        <span class="w-2 h-2 rounded-full bg-brand-500"></span>
+                        <span class="font-semibold text-brand-500">Tarsus / Mersin Merkezli</span> • Tüm Türkiye'ye Anahtar Teslim Saha Montajı
                     </div>
 
                     <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                        Tavuk Kümes Otomasyonu ve Panolarında <br>
+                        Kesimlik (Broiler) Kümeslerde <br>
                         <span class="bg-gradient-to-r from-brand-500 via-amber-400 to-tech-500 bg-clip-text text-transparent">
-                            A'dan Z'ye Her Şey
-                        </span> Tek Çatı Altında
+                            30 Yıllık Akıllı Otomasyon
+                        </span> Güvencesi
                     </h1>
 
                     <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                        İster sıfırdan anahtar teslim kümes otomasyonu, ister parça pano imalatı, pano revizyonu veya acil arıza tespiti... Kümes iklimlendirme, fan kontrol, yem-su ve havalandırma sistemlerinizde <strong>30 yıllık Bekir Şener tecrübesi.</strong>
+                        Etlik piliç (Broiler) kümeslerinizde ideal canlı ağırlık artışı ve minimum FCR için özel olarak geliştirilmiş PID kontrollü iklimlendirme, tünel fan, ped soğutma ve otomatik yem-su otomasyon panoları.
                     </p>
 
                     <!-- VURGULAR (HIGHLIGHTS) -->
                     <div class="pt-2 grid grid-cols-2 sm:grid-cols-3 gap-4 text-left max-w-lg mx-auto lg:mx-0">
-                        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-                            <div class="text-brand-500 font-extrabold text-lg flex items-center gap-1.5">
-                                <i class="fa-solid fa-screwdriver-wrench"></i> Parça İşler
-                            </div>
-                            <div class="text-xs text-slate-400">Özel İmalat & Revizyon</div>
+                        <div class="p-3 rounded-lg bg-slate-900/50 border border-slate-800">
+                            <div class="text-brand-500 font-bold text-xl">30+ Yıl</div>
+                            <div class="text-xs text-slate-400">Sektörel Tecrübe</div>
                         </div>
-                        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-                            <div class="text-red-500 font-extrabold text-lg flex items-center gap-1.5">
-                                <i class="fa-solid fa-triangle-exclamation"></i> Arıza Tespit
-                            </div>
-                            <div class="text-xs text-slate-400">Anında Saha Müdahalesi</div>
+                        <div class="p-3 rounded-lg bg-slate-900/50 border border-slate-800">
+                            <div class="text-tech-500 font-bold text-xl">%100</div>
+                            <div class="text-xs text-slate-400">Özel Pano İmalatı</div>
                         </div>
-                        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 col-span-2 sm:col-span-1">
-                            <div class="text-tech-500 font-extrabold text-lg flex items-center gap-1.5">
-                                <i class="fa-solid fa-clock-rotate-left"></i> 30+ Yıl
-                            </div>
-                            <div class="text-xs text-slate-400">Sektörel Birikim</div>
+                        <div class="p-3 rounded-lg bg-slate-900/50 border border-slate-800 col-span-2 sm:col-span-1">
+                            <div class="text-emerald-500 font-bold text-xl">7/24</div>
+                            <div class="text-xs text-slate-400">Mobil Alarm & Destek</div>
                         </div>
                     </div>
 
                     <!-- CTA BUTONLAR -->
                     <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                        <a href="https://wa.me/905337692278?text=Merhaba%20Bekir%20Bey,%20k%C3%BCmes%20otomasyonu%20/%20pano%20ar%C4%B1zas%C4%B1%20i%C3%A7in%20ula%C5%9F%C4%B1yorum." 
+                        <a href="https://wa.me/905337692278?text=Merhaba,%20kesimlik%20tavuk%20k%C3%BCmesi%20i%C3%A7in%20proje%20ve%20fiyat%20teklifi%20almak%20istiyorum." 
                            target="_blank"
                            class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 text-white font-bold text-base shadow-xl shadow-brand-600/30 hover:scale-[1.02] transition-all flex items-center justify-center gap-3">
                             <i class="fa-brands fa-whatsapp text-xl"></i>
-                            Bekir Şener'e Anında Ulaşın
+                            Bekir Şener ile İletişime Geç
                         </a>
-                        <a href="#hizmetler" 
+                        <a href="#simulasyon" 
                            class="w-full sm:w-auto px-6 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-base transition-all flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-list-check text-tech-500"></i>
-                            Hizmet Kapsamımız
+                            <i class="fa-solid fa-sliders text-tech-500"></i>
+                            Sıcaklığı Test Et (Simülatör)
                         </a>
                     </div>
 
                 </div>
 
-                <!-- HERO SAĞ GÖRSEL -->
+                <!-- HERO SAĞ GERÇEK TAVUK ÇİFTLİĞİ GÖRSELİ & ROZET -->
                 <div class="lg:col-span-5 relative">
                     <div class="relative mx-auto max-w-md lg:max-w-none">
                         <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-brand-500 to-tech-600 opacity-30 blur-xl"></div>
                         <div class="relative rounded-2xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900">
-                            <!-- Gerçek Tavuk Kümesi Görseli -->
+                            <!-- Doğru Tavuk Çiftliği Görseli -->
                             <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80&w=1000&auto=format&fit=crop" 
-                                 alt="Tavuk Kümes Otomasyonu ve Pano Sistemleri" 
+                                 alt="Kesimlik tavuk (broiler) çiftliği otomasyonu - HİS Otomasyon" 
                                  class="w-full h-[420px] object-cover opacity-90 hover:opacity-100 transition-opacity">
                             
-                            <!-- ROZET (Bekir Şener) -->
+                            <!-- ROZET (Kurucu Vurgusu) -->
                             <div class="absolute bottom-4 left-4 right-4 glass-panel p-4 rounded-xl border border-slate-700/80 flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-full bg-brand-500/20 border border-brand-500/50 flex items-center justify-center text-brand-500 text-xl flex-shrink-0">
-                                    <i class="fa-solid fa-user-gear"></i>
+                                    <i class="fa-solid fa-user-shield"></i>
                                 </div>
                                 <div>
                                     <h4 class="text-sm font-bold text-white">Bekir Şener</h4>
-                                    <p class="text-xs text-slate-300">Pano & Otomasyon Ustası (30 Yıl Deneyim)</p>
-                                    <p class="text-[11px] text-brand-400 mt-0.5">Tarsus / Mersin & Türkiye Geneli Hizmet</p>
+                                    <p class="text-xs text-slate-300">Kurucu & Baş Mühendis (30 Yıl Deneyim)</p>
+                                    <p class="text-[11px] text-brand-400 mt-0.5">Tarsus & Türkiye Geneli Hizmet</p>
                                 </div>
                             </div>
                         </div>
@@ -260,126 +324,18 @@
         </div>
     </section>
 
-    <!-- BÖLÜM 1: HİZMETLER & KÜMES ADINA HER ŞEY -->
-    <section id="hizmetler" class="py-20 bg-slate-900/60 border-y border-slate-800 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-brand-500 text-xs font-bold uppercase tracking-widest">Kapsamlı Çözümler</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Kümes Otomasyonu & Panolarında Neler Yapıyoruz?</h2>
-                <p class="text-slate-400 text-sm sm:text-base mt-3">
-                    Kümesinizde ihtiyaç duyduğunuz her türlü teknik müdahale, pano imalatı, tamir ve iklimlendirme ayarları uzman kadromuzca yapılmaktadır.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- KART 1: ACİL ARIZA & SERVİS -->
-                <div class="glass-card p-8 rounded-2xl transition-all duration-300 border-l-4 border-l-red-500">
-                    <div class="w-14 h-14 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-500 text-2xl mb-6">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Arıza Tespiti & Acil Müdahale</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        Pano şalter atması, fan durması, sensör yanılması veya elektrik kesintisinde kümes içi can kaybını önleyen anında arıza bulma ve yerinde tamir hizmeti.
-                    </p>
-                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-red-500"></i> Hızlı Yerinde Saha Servisi</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-red-500"></i> Yanmış Kontak & Sürücü Değişimi</li>
-                    </ul>
-                </div>
-
-                <!-- KART 2: PARÇA İŞLER VE ÖZEL PANO -->
-                <div class="glass-card p-8 rounded-2xl transition-all duration-300 border-l-4 border-l-brand-500">
-                    <div class="w-14 h-14 rounded-xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-500 text-2xl mb-6">
-                        <i class="fa-solid fa-puzzle-piece"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Parça İşler & Özel Pano İmalatı</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        Komple tesis şart değil! Sadece bir fan panosu, tekli sürücü ilavesi, klape motor kontrolü veya belirli bir hatta özel revizyon işlerinizi yapıyoruz.
-                    </p>
-                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> İhtiyaca Göre Modüler Ek Panolar</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> Parça Malzeme & İşçilik Desteği</li>
-                    </ul>
-                </div>
-
-                <!-- KART 3: İKLİMLENDİRME & FAN KONTROL -->
-                <div class="glass-card p-8 rounded-2xl transition-all duration-300 border-l-4 border-l-tech-500">
-                    <div class="w-14 h-14 rounded-xl bg-tech-500/10 border border-tech-500/30 flex items-center justify-center text-tech-500 text-2xl mb-6">
-                        <i class="fa-solid fa-fan"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">İklimlendirme & Tünel Fan Otomasyonu</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        Kümes içi ısı, nem ve amonyak gazı oranına göre kademeli veya hız kontrollü (Inverter/VFD) tünel havalandırma pano kurulumu.
-                    </p>
-                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-tech-500"></i> PID Hassas Sıcaklık Dengesi</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-tech-500"></i> Enerji Tasarruflu Hız Sürücüleri</li>
-                    </ul>
-                </div>
-
-                <!-- KART 4: MEVCUT PANO YENİLEME -->
-                <div class="glass-card p-8 rounded-2xl transition-all duration-300">
-                    <div class="w-14 h-14 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-2xl mb-6">
-                        <i class="fa-solid fa-rotate"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Eski Pano Yenileme & Modernizasyon</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        Eski, yıpranmış veya sık arıza yapan kümes panolarınızı söküp modern PLC ekranlar, sanayi tipi şalterler ve güvenli kablolama ile yeniliyoruz.
-                    </p>
-                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Kablo Düzenleme & Etiketleme</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> PLC & Akıllı Ekran Entegrasyonu</li>
-                    </ul>
-                </div>
-
-                <!-- KART 5: YEM, SU & SILO KONTROL -->
-                <div class="glass-card p-8 rounded-2xl transition-all duration-300">
-                    <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 text-2xl mb-6">
-                        <i class="fa-solid fa-wheat-awn"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Yem-Su, Silo & Ped Soğutma Sistemleri</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        Helezon motor koruma panoları, silo tartı (loadcell) göstergeleri, otomatik ped su pompası ve basınca duyarlı klape motor sürücüleri.
-                    </p>
-                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Zaman ve Sensör Ayarlı Yemleme</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Pad Soğutma Islatma Zamanlayıcıları</li>
-                    </ul>
-                </div>
-
-                <!-- KART 6: ALARM & UZAKTAN İZLEME -->
-                <div class="glass-card p-8 rounded-2xl transition-all duration-300">
-                    <div class="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 text-2xl mb-6">
-                        <i class="fa-solid fa-mobile-screen-button"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">GSM Sesli Arama & Uzaktan İzleme</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        Elektrik kesildiğinde veya kümes içi sıcaklık kritik seviyeyi aştığında cebinizi anında arayan ve SMS atan güvenlik alarm modülleri.
-                    </p>
-                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-500"></i> Kesintisiz Akülü GSM Alarmı</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-500"></i> Cep Telefonundan Isı Takibi</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- INTERAKTİF BÖLÜM: ETKİLEŞİMLİ SİCİL / ALARM VE ARIZA SİMÜLATÖRÜ -->
-    <section id="simulasyon" class="py-20 relative z-10">
+    <!-- INTERAKTİF BÖLÜM: AWWWARDS KALİTESİNDE TAM ETKİLEŞİMLİ SİCİL / ALARM SİMÜLATÖRÜ -->
+    <section id="simulasyon" class="py-20 bg-slate-900/80 border-y border-slate-800 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-10">
-                <span class="text-tech-500 text-xs font-bold uppercase tracking-widest">Canlı Etkileşim Testi</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Kümes Sıcaklık & Arıza Alarm Simülatörü</h2>
+                <span class="text-tech-500 text-xs font-bold uppercase tracking-widest">Tam Etkileşimli Panel Demosu</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Canlı Kümes İklimlendirme ve Alarm Testi</h2>
                 <p class="text-slate-400 text-sm sm:text-base mt-3">
-                    Aşağıdaki <strong>+</strong> ve <strong>-</strong> butonlarını kullanarak kümes sıcaklığını veya gaz oranını değiştirin. Otomasyon panosunun nasıl otomatik tepki verdiğini ve alarmı izleyin!
+                    Aşağıdaki <strong>+</strong> ve <strong>-</strong> butonlarını kullanarak kümes sıcaklığını veya gaz oranını değiştirin. Pano otomasyonunun anında nasıl karar alıp alarm verdiğini canlı izleyin!
                 </p>
             </div>
 
-            <!-- CANLI ALARM UYARI BANTI -->
+            <!-- CANLI ALARM UYARI BANTI (DYNAMİC ALARM BANNER) -->
             <div id="alarm-banner" class="hidden mb-8 p-4 rounded-2xl border flex items-center justify-between gap-4 transition-all duration-300">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-full bg-red-600/30 flex items-center justify-center text-red-500 text-xl animate-bounce">
@@ -395,11 +351,24 @@
                 </span>
             </div>
 
+            <!-- MOBİL / DEMO KONTROL ÇUBUĞU -->
+            <div class="mobile-sticky-actions flex flex-wrap items-center gap-2 mb-5">
+                <button type="button" onclick="setScenario('normal')" class="flex-1 min-w-[110px] px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold border border-slate-700">
+                    <i class="fa-solid fa-circle-check mr-1"></i> Normal
+                </button>
+                <button type="button" onclick="toggleAlarmSound()" id="alarm-sound-btn" class="flex-1 min-w-[110px] px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold border border-slate-700">
+                    <i class="fa-solid fa-volume-high mr-1"></i> Ses Açık
+                </button>
+                <button type="button" onclick="clearAlarmHistory()" class="flex-1 min-w-[110px] px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold border border-slate-700">
+                    <i class="fa-solid fa-trash mr-1"></i> Alarm Geçmişi
+                </button>
+            </div>
+
             <!-- SIMULATOR MAIN BOARD -->
-            <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-slate-700 shadow-2xl relative overflow-hidden">
+            <div class="glass-panel rounded-3xl p-4 sm:p-6 lg:p-10 border border-slate-700 shadow-2xl relative overflow-hidden">
                 <div class="grid lg:grid-cols-12 gap-8 items-stretch">
                     
-                    <!-- SOL: SENSÖR KONTROLLERİ (+ / - BUTTONS) -->
+                    <!-- SOL: INTERNET SENSÖR KONTROLLERİ (+ / - BUTTONS) -->
                     <div class="lg:col-span-7 space-y-6">
                         <div class="flex items-center justify-between border-b border-slate-800 pb-4">
                             <h3 class="font-bold text-lg text-white flex items-center gap-2">
@@ -413,8 +382,8 @@
 
                         <div class="grid sm:grid-cols-2 gap-4">
                             
-                            <!-- 1. SICAKLIK KONTROL KARTI -->
-                            <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800 space-y-3">
+                            <!-- 1. SICAKLIK KONTROL KARTI (TEMPERATURE ADJUSTMENT) -->
+                            <div class="sensor-card bg-slate-900/90 p-5 rounded-2xl border border-slate-800 space-y-3">
                                 <div class="flex justify-between items-center">
                                     <span class="text-xs font-semibold text-slate-400">İç Sıcaklık (Sensör 1)</span>
                                     <i class="fa-solid fa-temperature-high text-brand-500 text-lg"></i>
@@ -434,8 +403,8 @@
                                 </div>
                             </div>
 
-                            <!-- 2. NEM KONTROL KARTI -->
-                            <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800 space-y-3">
+                            <!-- 2. NEM KONTROL KARTI (HUMIDITY ADJUSTMENT) -->
+                            <div class="sensor-card bg-slate-900/90 p-5 rounded-2xl border border-slate-800 space-y-3">
                                 <div class="flex justify-between items-center">
                                     <span class="text-xs font-semibold text-slate-400">Bağıl Nem Oranı</span>
                                     <i class="fa-solid fa-droplet text-tech-500 text-lg"></i>
@@ -455,8 +424,8 @@
                                 </div>
                             </div>
 
-                            <!-- 3. AMONYAK GAZ KONTROL KARTI -->
-                            <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800 space-y-3">
+                            <!-- 3. AMONYAK GAZ KONTROL KARTI (NH3 ADJUSTMENT) -->
+                            <div class="sensor-card bg-slate-900/90 p-5 rounded-2xl border border-slate-800 space-y-3">
                                 <div class="flex justify-between items-center">
                                     <span class="text-xs font-semibold text-slate-400">Amonyak (NH3) Gazı</span>
                                     <i class="fa-solid fa-wind text-amber-500 text-lg"></i>
@@ -508,17 +477,17 @@
                                 </span>
                             </div>
 
-                            <!-- PANO TEPKİ LİSTESİ -->
+                            <!-- PANO REACTION STATUS LIST -->
                             <div class="space-y-3">
                                 
                                 <!-- Tünel Fan -->
                                 <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400">
+                                        <div id="status-fan-icon" class="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400">
                                             <i class="fa-solid fa-fan"></i>
                                         </div>
                                         <div>
-                                            <div class="text-xs font-bold text-white">Havalandırma Fanları</div>
+                                            <div class="text-xs font-bold text-white">Tünel Havalandırma Fanları</div>
                                             <div id="status-fan-text" class="text-[11px] text-slate-400">Asgari Havalandırma (%25)</div>
                                         </div>
                                     </div>
@@ -527,10 +496,10 @@
                                     </span>
                                 </div>
 
-                                <!-- Isıtıcılar -->
+                                <!-- Isıtıcı Radyanlar -->
                                 <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400">
+                                        <div id="status-heat-icon" class="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400">
                                             <i class="fa-solid fa-fire"></i>
                                         </div>
                                         <div>
@@ -546,11 +515,11 @@
                                 <!-- Ped Soğutma -->
                                 <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400">
+                                        <div id="status-pad-icon" class="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400">
                                             <i class="fa-solid fa-snowflake"></i>
                                         </div>
                                         <div>
-                                            <div class="text-xs font-bold text-white">Ped Soğutma Pompası</div>
+                                            <div class="text-xs font-bold text-white">Ped Soğutma Su Pompası</div>
                                             <div id="status-pad-text" class="text-[11px] text-slate-400">Beklemede (Nem Uygun)</div>
                                         </div>
                                     </div>
@@ -562,11 +531,11 @@
                                 <!-- Mobil Alarm / Arama -->
                                 <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400">
+                                        <div id="status-alarm-icon" class="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400">
                                             <i class="fa-solid fa-phone-volume"></i>
                                         </div>
                                         <div>
-                                            <div class="text-xs font-bold text-white">GSM Arama & SMS Alarmı</div>
+                                            <div class="text-xs font-bold text-white">GSM Mobil Arama & SMS Alarmı</div>
                                             <div id="status-alarm-text" class="text-[11px] text-slate-400">Hat Hazır (Sistem Normal)</div>
                                         </div>
                                     </div>
@@ -580,77 +549,197 @@
 
                         <!-- LIVE LOG FOOTER -->
                         <div class="mt-6 pt-4 border-t border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-                            <span id="sim-log">Sistem Stabil: Sensör verileri normal sınırlarda.</span>
+                            <span id="sim-log">Sistem Stabil: Tüm sensör değerleri broiler kümes standartlarında.</span>
                         </div>
                     </div>
 
                 </div>
             </div>
+
+            <!-- ALARM GEÇMİŞİ -->
+            <div class="mt-5 glass-panel rounded-2xl p-4 border border-slate-800">
+                <div class="flex items-center justify-between gap-3 mb-3">
+                    <div>
+                        <div class="text-sm font-bold text-white">Alarm & Sistem Olay Geçmişi</div>
+                        <div class="text-[11px] text-slate-500">Simülatörün verdiği son tepkiler</div>
+                    </div>
+                    <span id="alarm-counter" class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 text-[11px] font-bold">0 OLAY</span>
+                </div>
+                <div id="alarm-history" class="alarm-history max-h-44 overflow-auto space-y-2">
+                    <div class="text-xs text-slate-500 bg-slate-900/70 rounded-xl p-3">Henüz alarm oluşmadı. Sıcaklık, nem veya NH3 değerini değiştirerek sistemi test edin.</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- BÖLÜM 2: PARÇA İŞLER VE PARÇA MÜDAHALE ÖRNEKLERİ -->
-    <section id="parca-isler" class="py-16 bg-slate-900/40 border-y border-slate-800/80 relative z-10">
+    <!-- INTERAKTİF BÖLÜM 2: BROILER (KESİMLİK TAVUK) BÜYÜME DÖNGÜSÜ -->
+    <section id="dongu" class="py-16 bg-slate-900/40 border-b border-slate-800/80 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-brand-500 text-xs font-bold uppercase tracking-widest">Esnek Çalışma Modeli</span>
-                <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-2">İşin Büyüğüne Küçüğüne Bakmıyoruz</h2>
+                <span class="text-brand-500 text-xs font-bold uppercase tracking-widest">Hassas Gelişim Yönetimi</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-2">Etlik Piliç (Broiler) Yaş Evrelerine Özel Otomasyon</h2>
                 <p class="text-slate-400 text-sm sm:text-base mt-3">
-                    Kümesinizde sadece tek bir sorun mu var? Ya da sadece bir panoyu mu değiştirmek istiyorsunuz? Parça işleriniz için de doğrudan bize ulaşabilirsiniz.
+                    Broiler yetiştiriciliğinde civcivin ilk gününden kesim gününe kadar sıcaklık ve havalandırma ihtiyacı sürekli değişir. HİS Otomasyon panoları bu gelişim eğrisini otomatik uygular.
                 </p>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- TABS -->
+            <div class="flex justify-center gap-2 sm:gap-4 mb-8 overflow-x-auto pb-2">
+                <button onclick="changeStage(1)" id="stage-btn-1" class="stage-btn px-5 py-3 rounded-xl bg-brand-500 text-white font-bold text-sm shadow-lg transition-all flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-drumstick-bite"></i> 1. Hafta (Civciv Dönemi)
+                </button>
+                <button onclick="changeStage(2)" id="stage-btn-2" class="stage-btn px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-sm transition-all flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-drumstick-bite"></i> 2-3. Hafta (Hızlı Büyüme)
+                </button>
+                <button onclick="changeStage(3)" id="stage-btn-3" class="stage-btn px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-sm transition-all flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-weight-hanging"></i> 4-6. Hafta (Kesim Öncesi Finisher)
+                </button>
+            </div>
+
+            <!-- DYNAMIC STAGE CARD -->
+            <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-slate-700 max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-6 text-center md:text-left items-center">
+                    <div class="space-y-2">
+                        <span class="text-xs text-slate-400 uppercase font-semibold">Hedef İç Sıcaklık</span>
+                        <div id="stage-temp" class="text-3xl font-extrabold text-brand-500">32.5 °C</div>
+                        <p id="stage-temp-desc" class="text-xs text-slate-400">Civcivlerin üşümemesi için yüksek radyan sıcaklık kontrolü.</p>
+                    </div>
+                    <div class="space-y-2 border-y md:border-y-0 md:border-x border-slate-800 py-4 md:py-0 md:px-6">
+                        <span class="text-xs text-slate-400 uppercase font-semibold">Havalandırma & Tünel Fan</span>
+                        <div id="stage-fan" class="text-3xl font-extrabold text-tech-500">Asgari (Minimum)</div>
+                        <p id="stage-fan-desc" class="text-xs text-slate-400">Hava ceryanı oluşturmadan temiz oksijen sağlama.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="text-xs text-slate-400 uppercase font-semibold">Yem & Su Otomasyonu</span>
+                        <div id="stage-feed" class="text-3xl font-extrabold text-emerald-500">Sürekli & Alçak Seviye</div>
+                        <p id="stage-feed-desc" class="text-xs text-slate-400">Civciv boyuna göre sensörlü otomatik hat yüksekliği.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BÖLÜM 3: SİSTEMLERİMİZ & HİZMETLER -->
+    <section id="sistemler" class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-500 text-xs font-bold uppercase tracking-widest">Endüstriyel Çözümler</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Kesimlik Kümes Otomasyon Ürünlerimiz</h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-3">
+                    Broiler tavukçuluğunda hataya yer yoktur. Panolarımız Schneider, ABB ve Siemens şalt malzemeleri ile özel imal edilir.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
-                    <div class="w-10 h-10 rounded-lg bg-brand-500/20 text-brand-500 flex items-center justify-center font-bold text-lg">
-                        <i class="fa-solid fa-wrench"></i>
+                <!-- KART 1 -->
+                <div class="glass-card p-8 rounded-2xl transition-all duration-300">
+                    <div class="w-14 h-14 rounded-xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-500 text-2xl mb-6">
+                        <i class="fa-solid fa-temperature-arrow-up"></i>
                     </div>
-                    <h4 class="font-bold text-white text-base">Tekli Fan Pano İmalatı</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Ekstra fan eklediğinizde tüm panoyu değiştirmeden sadece ilgili fan için korumalı güç panosu yapıyoruz.</p>
+                    <h3 class="text-xl font-bold text-white mb-3">Tünel Fan & İklimlendirme Panoları</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Sürücülü (Frekans konvertörlü) oransal fan kontrolü. Kümes içi hissedilen sıcaklığa göre tünel havalandırmaya yumuşak geçiş.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> PID Hassas Isı ve Nem Dengesi</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> Motor Koruma ve Faz Kontrolü</li>
+                    </ul>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
-                    <div class="w-10 h-10 rounded-lg bg-tech-500/20 text-tech-500 flex items-center justify-center font-bold text-lg">
-                        <i class="fa-solid fa-bolt"></i>
+                <!-- KART 2 -->
+                <div class="glass-card p-8 rounded-2xl transition-all duration-300">
+                    <div class="w-14 h-14 rounded-xl bg-tech-500/10 border border-tech-500/30 flex items-center justify-center text-tech-500 text-2xl mb-6">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
                     </div>
-                    <h4 class="font-bold text-white text-base">Sürücü (Inverter) İlavesi</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Mevcut panonuza devir ayarlı sürücü ekleyerek fanların kademeli ve sessiz çalışmasını sağlıyoruz.</p>
+                    <h3 class="text-xl font-bold text-white mb-3">IoT Mobil Uzaktan İzleme & Alarm</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Dünyanın neresinde olursanız olun kümesinizin ısı, nem ve elektrik durumunu cep telefonunuzdan canlı izleyin. Elektrik kesintisinde anında sesli arama.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-tech-500"></i> Sesli Arama ve SMS Alarm Modülü</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-tech-500"></i> Android / iOS Canlı Grafik Takibi</li>
+                    </ul>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
-                    <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-500 flex items-center justify-center font-bold text-lg">
-                        <i class="fa-solid fa-microchip"></i>
+                <!-- KART 3 -->
+                <div class="glass-card p-8 rounded-2xl transition-all duration-300">
+                    <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 text-2xl mb-6">
+                        <i class="fa-solid fa-wheat-awn-circle-exclamation"></i>
                     </div>
-                    <h4 class="font-bold text-white text-base">Sensör & Ekran Değişimi</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Arızalanan, yanlış ölçen ısı/nem sensörlerinizi ve ekranlarınızı yenisiyle değiştirip kalibre ediyoruz.</p>
+                    <h3 class="text-xl font-bold text-white mb-3">Silo Tartı & Otomatik Yemleme</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Silo altı yük hücresi (loadcell) entegrasyonu ile günlük yem tüketim takibi. Broiler gelişim saatlerine göre çalışan helezon motor panoları.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Hassas Silo Kantar Göstergeleri</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Sıkışma Önleyici Motor Koruması</li>
+                    </ul>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
-                    <div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-500 flex items-center justify-center font-bold text-lg">
-                        <i class="fa-solid fa-shield-cat"></i>
+                <!-- KART 4 -->
+                <div class="glass-card p-8 rounded-2xl transition-all duration-300">
+                    <div class="w-14 h-14 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-2xl mb-6">
+                        <i class="fa-solid fa-bolt-lightning"></i>
                     </div>
-                    <h4 class="font-bold text-white text-base">Kayıp / Kaçak Akım Önleme</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Pano içi ısınma, gevşek klemens ve voltaj dalgalanmalarına karşı pano içi güvenlik taraması yapıyoruz.</p>
+                    <h3 class="text-xl font-bold text-white mb-3">Jeneratör Otomatik Transfer Panoları</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Elektrik kesildiğinde saniyeler içinde jeneratörü devreye sokan, voltaj dalgalanmalarına karşı havalandırma motorlarını koruyan ağır hizmet panoları.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Otomatik Şebeke / Jeneratör Transferi</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Aşırı Yük ve Düşük Voltaj Koruması</li>
+                    </ul>
+                </div>
+
+                <!-- KART 5 -->
+                <div class="glass-card p-8 rounded-2xl transition-all duration-300">
+                    <div class="w-14 h-14 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-2xl mb-6">
+                        <i class="fa-solid fa-cloud-showers-water"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Ped Soğutma & Klape Sürücüleri</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Yaz sıcaklarında broiler sıcaklık stresini engellemek için nem oranına bağlı çalışan ped su pompası panosu ve basınca duyarlı klape motorları.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> Basınç Ayarlı Otomatik Klape</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> Zaman Ayarlı Ped Islatma</li>
+                    </ul>
+                </div>
+
+                <!-- KART 6 -->
+                <div class="glass-card p-8 rounded-2xl transition-all duration-300">
+                    <div class="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 text-2xl mb-6">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Anahtar Teslim Saha Montajı</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Tarsus ve Mersin çıkışlı uzman ekibimizle Türkiye'nin her yerine gidiyor, kablolama, pano montajı ve kümes devreye alma işlemlerini eksiksiz yapıyoruz.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-500"></i> Tarsus ve Türkiye Geneli Saha Ekibi</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-500"></i> Ücretsiz Keşif ve Danışmanlık</li>
+                    </ul>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- BÖLÜM 3: NEDEN BEKİR ŞENER & HİS OTOMASYON? -->
+    <!-- BÖLÜM 4: NEDEN BEKİR ŞENER & HİS OTOMASYON? -->
     <section id="neden-biz" class="py-20 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="glass-panel rounded-3xl p-8 sm:p-12 border border-slate-700 relative overflow-hidden">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
                     
                     <div class="space-y-6">
-                        <span class="text-brand-500 text-xs font-bold uppercase tracking-widest">30 Yıllık Kümes Saha Deneyimi</span>
+                        <span class="text-brand-500 text-xs font-bold uppercase tracking-widest">Tecrübe ve Müşteri Güveni</span>
                         <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
-                            İşinizi Usta Ellere Emane Edin
+                            30 Yıldır Tavuk Kümeslerinin Kalbindeyiz
                         </h2>
                         <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
-                            HİS Otomasyon Sistemleri kurucusu <strong>Bekir Şener</strong>, 30 yılı aşkın süredir endüstriyel pano tasarımı, arıza tespiti ve tavuk çiftliği iklimlendirme sistemleri üzerine uzmanlaşmıştır. Tarsus merkezli ekibimizle Türkiye'nin her yerine parça veya anahtar teslim saha hizmeti sunuyoruz.
+                            HİS Otomasyon Sistemleri kurucusu <strong>Bekir Şener</strong>, 30 yılı aşkın süredir endüstriyel pano tasarımı ve tavuk çiftliği iklimlendirme sistemleri üzerine uzmanlaşmıştır. Tarsus bölgesinden başlayan yolculuğumuz, bugün Türkiye'nin dört bir yanındaki anahtar teslim broiler projeleriyle devam etmektedir.
                         </p>
                         
                         <div class="space-y-4 pt-2">
@@ -659,8 +748,8 @@
                                     <i class="fa-solid fa-check"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-white text-base">Kaliteli Sanayi Tipi Şalt Malzeme</h4>
-                                    <p class="text-xs text-slate-400 mt-1">Panolarımızda amonyak ve toza dayanıklı sanayi tipi malzemeler ve korumalı şalterler kullanılır.</p>
+                                    <h4 class="font-bold text-white text-base">Sanayi Tipi Şalt Malzeme Kalitesi</h4>
+                                    <p class="text-xs text-slate-400 mt-1">Panolarımızda amonyak ve toza dayanıklı sanayi tipi PLC ve korumalı şalterler kullanılır.</p>
                                 </div>
                             </div>
 
@@ -669,23 +758,23 @@
                                     <i class="fa-solid fa-truck-fast"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-white text-base">Anında Telefonla Destek & Hızlı Ulaşım</h4>
-                                    <p class="text-xs text-slate-400 mt-1">Acil durumlarda telefonla uzaktan yönlendirme yapıyor, gerekirse en hızlı şekilde sahaya ulaşıyoruz.</p>
+                                    <h4 class="font-bold text-white text-base">Tarsus'tan 81 İle Hızlı Teknik Destek</h4>
+                                    <p class="text-xs text-slate-400 mt-1">Arıza durumunda uzaktan erişim veya hızlı saha müdahalesi ile canlılarınızın riske girmesini engelliyoruz.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="pt-4">
-                            <a href="https://wa.me/905337692278?text=Bekir%20Bey%20Merhaba,%20k%C3%BCmes%20otomasyonu%20i%C3%A7in%20bilgi%20almak%20istiyorum." 
+                            <a href="https://wa.me/905337692278?text=Bekir%20Bey%20Merhaba,%20k%C3%BCmes%20otomasyon%20sistemi%20hakk%C1%B1nda%20dan%C1%B1%C5%9Fmak%20istiyorum." 
                                target="_blank" 
-                               class="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-all shadow-lg shadow-emerald-900/40">
+                               class="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-all shadow-lg shadow-emerald-900/40">
                                 <i class="fa-brands fa-whatsapp text-lg"></i>
                                 Bekir Şener ile Doğrudan Görüşün
                             </a>
                         </div>
                     </div>
 
-                    <!-- İSTATİSTİKLER -->
+                    <!-- SAĞ: BİLGİ KARTLARI / İSTATİSTİK -->
                     <div class="grid grid-cols-2 gap-4">
                         <div class="bg-slate-900/90 p-6 rounded-2xl border border-slate-800 text-center space-y-2">
                             <div class="text-4xl font-extrabold text-brand-500">30+</div>
@@ -694,21 +783,21 @@
                         </div>
 
                         <div class="bg-slate-900/90 p-6 rounded-2xl border border-slate-800 text-center space-y-2">
-                            <div class="text-4xl font-extrabold text-tech-500">7/24</div>
-                            <div class="text-xs text-slate-300 font-semibold">Acil Destek</div>
-                            <p class="text-[11px] text-slate-500">Kesintisiz İletişim</p>
+                            <div class="text-4xl font-extrabold text-tech-500">500+</div>
+                            <div class="text-xs text-slate-300 font-semibold">Tamamlanan Kümes</div>
+                            <p class="text-[11px] text-slate-500">Türkiye Geneli Kurulum</p>
                         </div>
 
                         <div class="bg-slate-900/90 p-6 rounded-2xl border border-slate-800 text-center space-y-2">
-                            <div class="text-4xl font-extrabold text-emerald-500">100%</div>
-                            <div class="text-xs text-slate-300 font-semibold">Garantili İşçilik</div>
-                            <p class="text-[11px] text-slate-500">Güvenli Pano İmalatı</p>
+                            <div class="text-4xl font-extrabold text-emerald-500">%100</div>
+                            <div class="text-xs text-slate-300 font-semibold">Müşteri Memnuniyeti</div>
+                            <p class="text-[11px] text-slate-500">Yüksek Canlı Ağırlık Artışı</p>
                         </div>
 
                         <div class="bg-slate-900/90 p-6 rounded-2xl border border-slate-800 text-center space-y-2">
-                            <div class="text-4xl font-extrabold text-amber-500">500+</div>
-                            <div class="text-xs text-slate-300 font-semibold">Çözülen Arıza</div>
-                            <p class="text-[11px] text-slate-500">Saha Müdahalesi</p>
+                            <div class="text-4xl font-extrabold text-amber-500">7/24</div>
+                            <div class="text-xs text-slate-300 font-semibold">GSM Alarm Support</div>
+                            <p class="text-[11px] text-slate-500">Kesintisiz Güvenlik</p>
                         </div>
                     </div>
 
@@ -717,7 +806,7 @@
         </div>
     </section>
 
-    <!-- BÖLÜM 4: İLETİŞİM & ACİL ULAŞIM -->
+    <!-- BÖLÜM 5: İLETİŞİM & LOKASYON (TARSUS / TÜRKİYE) -->
     <section id="iletisim" class="py-20 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-12 gap-12">
@@ -725,10 +814,10 @@
                 <!-- SOL İLETİŞİM BİLGİLERİ -->
                 <div class="lg:col-span-5 space-y-8">
                     <div>
-                        <span class="text-brand-500 text-xs font-bold uppercase tracking-widest">Anında İletişim & Acil Hat</span>
-                        <h2 class="text-3xl font-extrabold text-white mt-2">Bize İstediğiniz An Ulaşabilirsiniz</h2>
+                        <span class="text-brand-500 text-xs font-bold uppercase tracking-widest">Anında İletişim</span>
+                        <h2 class="text-3xl font-extrabold text-white mt-2">Siz de Kümesinizi Akıllandırın</h2>
                         <p class="text-slate-400 text-sm mt-3">
-                            Yeni pano yaptırmak, mevcut sistemi tamir ettirmek veya acil arıza tespiti için direkt telefon numaramızdan ulaşabilirsiniz.
+                            Yeni kümes projeniz, pano yenileme veya anahtar teslim otomasyon için hemen bizi arayın veya WhatsApp'tan ulaşın.
                         </p>
                     </div>
 
@@ -739,9 +828,9 @@
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
                             <div>
-                                <h4 class="text-xs font-semibold text-slate-400 uppercase">Merkez & Hizmet Alanı</h4>
+                                <h4 class="text-xs font-semibold text-slate-400 uppercase">Merkez & Hizmet Bölgesi</h4>
                                 <p class="text-sm font-bold text-white mt-0.5">Tarsus / Mersin Merkezli</p>
-                                <p class="text-xs text-slate-300 mt-1">Tüm Türkiye'ye Saha Kurulumu, Tamir ve Servis</p>
+                                <p class="text-xs text-slate-300 mt-1">Tüm Türkiye'ye Anahtar Teslim Kurulum ve Servis</p>
                             </div>
                         </div>
 
@@ -751,11 +840,11 @@
                                 <i class="fa-solid fa-phone"></i>
                             </div>
                             <div>
-                                <h4 class="text-xs font-semibold text-slate-400 uppercase">Acil Ulaşım Hatı</h4>
-                                <a href="tel:05337692278" class="text-xl font-extrabold text-white hover:text-brand-500 transition-colors block mt-0.5">
+                                <h4 class="text-xs font-semibold text-slate-400 uppercase">Doğrudan İletişim Hattı</h4>
+                                <a href="tel:05337692278" class="text-lg font-extrabold text-white hover:text-brand-500 transition-colors block mt-0.5">
                                     0533 769 22 78
                                 </a>
-                                <p class="text-xs text-slate-400">Bekir Şener - Kurucu & Usta</p>
+                                <p class="text-xs text-slate-400">Bekir Şener - Kurucu</p>
                             </div>
                         </div>
 
@@ -767,7 +856,7 @@
                             <div>
                                 <h4 class="text-xs font-semibold text-slate-400 uppercase">WhatsApp İletişim</h4>
                                 <a href="https://wa.me/905337692278" target="_blank" class="text-sm font-bold text-emerald-400 hover:underline block mt-0.5">
-                                    Tıklayın ve Anında Mesaj Gönderin
+                                    Tıklayın ve Anında Sohbet Başlatın
                                 </a>
                             </div>
                         </div>
@@ -777,12 +866,12 @@
                 <!-- SAĞ İLETİŞİM FORMU -->
                 <div class="lg:col-span-7">
                     <div class="glass-panel p-8 rounded-3xl border border-slate-700">
-                        <h3 class="text-xl font-bold text-white mb-6">Hızlı Mesaj & Arıza Bildirim Formu</h3>
+                        <h3 class="text-xl font-bold text-white mb-6">Hızlı Teklif & Keşif Formu</h3>
                         <form onsubmit="event.preventDefault(); sendToWhatsapp();" class="space-y-4">
                             <div class="grid sm:grid-cols-2 gap-4">
                                 <div>
                                     <label class="text-xs font-semibold text-slate-300 block mb-1">Adınız Soyadınız</label>
-                                    <input type="text" id="form-name" required placeholder="Ad Soyad" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500">
+                                    <input type="text" id="form-name" required placeholder="Ahmet Yılmaz" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500">
                                 </div>
                                 <div>
                                     <label class="text-xs font-semibold text-slate-300 block mb-1">Telefon Numarası</label>
@@ -791,13 +880,13 @@
                             </div>
 
                             <div>
-                                <label class="text-xs font-semibold text-slate-300 block mb-1">Kümes Konumu (Şehir / İlçe)</label>
+                                <label class="text-xs font-semibold text-slate-300 block mb-1">Kümesin Bulunduğu Şehir / İlçe</label>
                                 <input type="text" id="form-city" placeholder="Örn: Tarsus / Mersin veya Balıkesir" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500">
                             </div>
 
                             <div>
-                                <label class="text-xs font-semibold text-slate-300 block mb-1">Yapılacak İş / Arıza Detayı</label>
-                                <textarea id="form-msg" rows="4" placeholder="Örn: Fan panosunda arıza var veya parça pano yaptırmak istiyorum..." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500"></textarea>
+                                <label class="text-xs font-semibold text-slate-300 block mb-1">İhtiyacınız / Mesajınız</label>
+                                <textarea id="form-msg" rows="4" placeholder="Kesimlik tavuk kümesimiz için pano değişimi ve iklimlendirme otomasyonu istiyoruz..." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500"></textarea>
                             </div>
 
                             <button type="submit" class="w-full py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
@@ -820,26 +909,153 @@
                 <span class="block sm:inline mt-1 sm:mt-0 text-[11px] text-slate-500">Kurucu: Bekir Şener | Tarsus / Mersin</span>
             </div>
             <div class="text-center sm:text-right text-[11px] leading-relaxed">
-                Tavuk Kümes Otomasyonu • Pano İmalatı • Arıza Tespiti & Tamiri • Türkiye Geneli Saha Hizmeti
+                SEO: Tarsus Tavuk Kümes Otomasyonu • Broiler İklimlendirme Panoları • Türkiye Geneli Saha Kurulumu
             </div>
         </div>
     </footer>
 
     <!-- SABİT FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/905337692278?text=Merhaba,%20k%C3%BCmes%20otomasyonu%20/%20pano%20hakk%C1%B1nda%20bilgi%20almak%20istiyorum." 
+    <a href="https://wa.me/905337692278?text=Merhaba,%20kesimlik%20tavuk%20k%C3%BCmes%20otomasyonu%20hakk%C1%B1nda%20bilgi%20almak%20istiyorum." 
        target="_blank" 
        class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center text-3xl shadow-2xl transition-all hover:scale-110 pulse-glow"
        title="Bekir Şener - WhatsApp İletişim">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- JAVASCRIPT LOGIC (SIMULATOR & FORM) -->
+    <!-- JAVASCRIPT LOGIC (LIVE INTERACTIVE SIMULATOR) -->
     <script>
         // CANLI SİMÜLASYON VERİLERİ
         let currentTemp = 24.5;
         let currentHumidity = 60;
         let currentNH3 = 10;
+        let alarmSoundEnabled = true;
+        let alarmHistory = [];
+        let lastAlarmKey = "";
+        let lastAlarmAt = 0;
 
+        function toggleMobileMenu() {
+            const panel = document.getElementById('mobile-menu-panel');
+            const btn = document.getElementById('mobile-menu-btn');
+            const icon = document.getElementById('mobile-menu-icon');
+            const open = panel.classList.toggle('is-open');
+            document.body.classList.toggle('mobile-menu-open', open);
+            btn.setAttribute('aria-expanded', String(open));
+            btn.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
+            icon.className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        }
+
+        function closeMobileMenu() {
+            const panel = document.getElementById('mobile-menu-panel');
+            const btn = document.getElementById('mobile-menu-btn');
+            const icon = document.getElementById('mobile-menu-icon');
+            panel.classList.remove('is-open');
+            document.body.classList.remove('mobile-menu-open');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.setAttribute('aria-label', 'Menüyü aç');
+            icon.className = 'fa-solid fa-bars';
+        }
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) closeMobileMenu();
+        });
+
+        function toggleAlarmSound() {
+            alarmSoundEnabled = !alarmSoundEnabled;
+            const btn = document.getElementById('alarm-sound-btn');
+            btn.innerHTML = alarmSoundEnabled
+                ? '<i class="fa-solid fa-volume-high mr-1"></i> Ses Açık'
+                : '<i class="fa-solid fa-volume-xmark mr-1"></i> Sessiz';
+            showToast(alarmSoundEnabled ? 'Alarm sesi açıldı' : 'Alarm sesi kapatıldı', alarmSoundEnabled ? 'success' : 'info');
+        }
+
+        function playAlarmSound() {
+            if (!alarmSoundEnabled) return;
+            try {
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (!AudioCtx) return;
+                const ctx = new AudioCtx();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(880, ctx.currentTime);
+                gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.12, ctx.currentTime + 0.02);
+                gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.35);
+                osc.connect(gain).connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.4);
+            } catch (e) {}
+        }
+
+        function showToast(message, type='info') {
+            let toast = document.getElementById('app-toast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'app-toast';
+                toast.className = 'toast fixed left-1/2 bottom-6 z-[80] px-4 py-3 rounded-xl border text-xs font-bold shadow-2xl';
+                document.body.appendChild(toast);
+            }
+            toast.className = 'toast fixed left-1/2 bottom-6 z-[80] px-4 py-3 rounded-xl border text-xs font-bold shadow-2xl ' +
+                (type === 'danger' ? 'bg-red-950 text-red-200 border-red-700' :
+                 type === 'success' ? 'bg-emerald-950 text-emerald-200 border-emerald-700' :
+                 'bg-slate-900 text-slate-200 border-slate-700');
+            toast.textContent = message;
+            requestAnimationFrame(() => toast.classList.add('show'));
+            clearTimeout(toast._timer);
+            toast._timer = setTimeout(() => toast.classList.remove('show'), 2400);
+        }
+
+        function addAlarmHistory(title, desc, type='warning') {
+            const now = Date.now();
+            const key = title + '|' + desc;
+            if (key === lastAlarmKey && now - lastAlarmAt < 2500) return;
+            lastAlarmKey = key;
+            lastAlarmAt = now;
+            alarmHistory.unshift({
+                time: new Date().toLocaleTimeString('tr-TR', {hour:'2-digit', minute:'2-digit', second:'2-digit'}),
+                title, desc, type
+            });
+            alarmHistory = alarmHistory.slice(0, 12);
+            renderAlarmHistory();
+        }
+
+        function renderAlarmHistory() {
+            const box = document.getElementById('alarm-history');
+            const counter = document.getElementById('alarm-counter');
+            if (!box || !counter) return;
+            counter.textContent = alarmHistory.length + ' OLAY';
+            if (!alarmHistory.length) {
+                box.innerHTML = '<div class="text-xs text-slate-500 bg-slate-900/70 rounded-xl p-3">Henüz alarm oluşmadı. Sıcaklık, nem veya NH3 değerini değiştirerek sistemi test edin.</div>';
+                return;
+            }
+            box.innerHTML = alarmHistory.map(item => `
+                <div class="flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/70 p-3">
+                    <span class="mt-0.5 w-7 h-7 rounded-lg ${item.type === 'danger' ? 'bg-red-500/15 text-red-400' : 'bg-amber-500/15 text-amber-400'} flex items-center justify-center">
+                        <i class="fa-solid ${item.type === 'danger' ? 'fa-triangle-exclamation' : 'fa-bell'}"></i>
+                    </span>
+                    <div class="min-w-0 flex-1">
+                        <div class="flex items-center justify-between gap-2">
+                            <div class="text-[11px] font-bold text-white truncate">${item.title}</div>
+                            <span class="text-[10px] text-slate-500">${item.time}</span>
+                        </div>
+                        <div class="text-[10px] text-slate-400 mt-0.5">${item.desc}</div>
+                    </div>
+                </div>`).join('');
+        }
+
+        function clearAlarmHistory() {
+            alarmHistory = [];
+            renderAlarmHistory();
+            showToast('Alarm geçmişi temizlendi', 'success');
+        }
+
+        function triggerAlarmFeedback(title, desc) {
+            addAlarmHistory(title, desc, 'danger');
+            playAlarmSound();
+            if (navigator.vibrate) navigator.vibrate([120, 80, 120]);
+        }
+
+        // + VE - BUTONLARI İLE DEĞER DEĞİŞTİRME FONKSİYONU
         function adjustValue(type, amount) {
             if (type === 'temp') {
                 currentTemp = parseFloat((currentTemp + amount).toFixed(1));
@@ -858,11 +1074,17 @@
                 document.getElementById('sim-nh3').innerText = currentNH3 + " PPM";
             }
 
+            // Pano ve Alarm Sistemini Yeniden Hesapla
             updateSimulationLogic();
         }
 
+        // HIZLI SENARYO TESTİ
         function setScenario(scenario) {
-            if (scenario === 'extreme-heat') {
+            if (scenario === 'normal') {
+                currentTemp = 24.5;
+                currentHumidity = 60;
+                currentNH3 = 10;
+            } else if (scenario === 'extreme-heat') {
                 currentTemp = 33.5;
                 currentHumidity = 75;
                 currentNH3 = 12;
@@ -884,6 +1106,7 @@
         }
 
         function resetSim() {
+            setScenario('normal');
             currentTemp = 24.5;
             currentHumidity = 60;
             currentNH3 = 10;
@@ -893,6 +1116,7 @@
             updateSimulationLogic();
         }
 
+        // OTOMATİK PANO KARAR VE ALARM MANTIĞI
         function updateSimulationLogic() {
             const alarmBanner = document.getElementById('alarm-banner');
             const alarmTitle = document.getElementById('alarm-title');
@@ -902,19 +1126,25 @@
 
             let isAlarm = false;
 
+            document.querySelectorAll('.sensor-card').forEach(card => card.classList.remove('status-active'));
+
+            // Sıcaklık Etiketleri & Mantık
             if (currentTemp > 28.0) {
                 isAlarm = true;
                 document.getElementById('temp-status-tag').innerText = "AŞIRI YÜKSEK!";
                 document.getElementById('temp-status-tag').className = "text-red-500 font-extrabold animate-pulse";
                 
-                document.getElementById('status-fan-text').innerText = "Tünel Fanlar Max (%100)";
-                document.getElementById('status-fan-badge').innerText = "MAX FAN";
+                // Fanlar Max
+                document.getElementById('status-fan-text').innerText = "Tünel Havalandırma Max (%100)";
+                document.getElementById('status-fan-badge').innerText = "MAX TÜNEL";
                 document.getElementById('status-fan-badge').className = "px-2.5 py-1 rounded-md text-xs font-bold bg-red-600 text-white animate-pulse";
 
+                // Ped Soğutma Açık
                 document.getElementById('status-pad-text').innerText = "Ped Pompa Otomatik Devrede";
                 document.getElementById('status-pad-badge').innerText = "AÇIK";
                 document.getElementById('status-pad-badge').className = "px-2.5 py-1 rounded-md text-xs font-bold bg-tech-500 text-white animate-pulse";
 
+                // Isıtıcı Kapalı
                 document.getElementById('status-heat-text').innerText = "Isıtıcılar Pasif";
                 document.getElementById('status-heat-badge').innerText = "KAPALI";
                 document.getElementById('status-heat-badge').className = "px-2.5 py-1 rounded-md text-xs font-bold bg-slate-800 text-slate-400";
@@ -924,14 +1154,17 @@
                 document.getElementById('temp-status-tag').innerText = "AŞIRI DÜŞÜK!";
                 document.getElementById('temp-status-tag').className = "text-blue-400 font-extrabold animate-pulse";
 
-                document.getElementById('status-fan-text').innerText = "Asgari Havalandırma (%10)";
+                // Fanlar Min
+                document.getElementById('status-fan-text').innerText = "Asgari Oksijen Seviyesi (%10)";
                 document.getElementById('status-fan-badge').innerText = "MINIMUM";
                 document.getElementById('status-fan-badge').className = "px-2.5 py-1 rounded-md text-xs font-bold bg-blue-900 text-blue-200";
 
+                // Isıtıcı Devrede
                 document.getElementById('status-heat-text').innerText = "Radyanlar Isıtma Modunda";
                 document.getElementById('status-heat-badge').innerText = "ISITMA AÇIK";
                 document.getElementById('status-heat-badge').className = "px-2.5 py-1 rounded-md text-xs font-bold bg-brand-500 text-white animate-pulse";
 
+                // Ped Kapalı
                 document.getElementById('status-pad-text').innerText = "Ped Pompası Kapalı";
                 document.getElementById('status-pad-badge').innerText = "KAPALI";
                 document.getElementById('status-pad-badge').className = "px-2.5 py-1 rounded-md text-xs font-bold bg-slate-800 text-slate-400";
@@ -940,19 +1173,35 @@
                 document.getElementById('temp-status-tag').innerText = "Normal";
                 document.getElementById('temp-status-tag').className = "text-emerald-400 font-semibold";
 
+                // Fanlar Dengeli
                 document.getElementById('status-fan-text').innerText = "Kademeli Havalandırma (%35)";
                 document.getElementById('status-fan-badge').innerText = "Kademe 2";
                 document.getElementById('status-fan-badge').className = "px-2.5 py-1 rounded-md text-xs font-bold bg-slate-800 text-slate-300";
 
+                // Isıtıcı Kapalı
                 document.getElementById('status-heat-text').innerText = "Sıcaklık Yeterli (Kapalı)";
                 document.getElementById('status-heat-badge').innerText = "KAPALI";
                 document.getElementById('status-heat-badge').className = "px-2.5 py-1 rounded-md text-xs font-bold bg-slate-800 text-slate-400";
 
+                // Ped Kapalı
                 document.getElementById('status-pad-text').innerText = "Beklemede (Nem Uygun)";
                 document.getElementById('status-pad-badge').innerText = "KAPALI";
                 document.getElementById('status-pad-badge').className = "px-2.5 py-1 rounded-md text-xs font-bold bg-slate-800 text-slate-400";
             }
 
+            // Nem kontrolü
+            if (currentHumidity > 70) {
+                document.getElementById('humidity-status-tag').innerText = "YÜKSEK";
+                document.getElementById('humidity-status-tag').className = "text-amber-400 font-extrabold animate-pulse";
+            } else if (currentHumidity < 45) {
+                document.getElementById('humidity-status-tag').innerText = "DÜŞÜK";
+                document.getElementById('humidity-status-tag').className = "text-blue-400 font-extrabold";
+            } else {
+                document.getElementById('humidity-status-tag').innerText = "Dengeli";
+                document.getElementById('humidity-status-tag').className = "text-emerald-400 font-semibold";
+            }
+
+            // Amonyak (NH3) Gazı Kontrolü
             if (currentNH3 >= 20) {
                 isAlarm = true;
                 document.getElementById('nh3-status-tag').innerText = "GAZ TEHLİKESİ!";
@@ -962,19 +1211,29 @@
                 document.getElementById('nh3-status-tag').className = "text-emerald-400 font-semibold";
             }
 
+            // ALARM BANTI TEPKİSİ
             if (isAlarm) {
+                const alarmMessage = currentTemp > 28.0
+                    ? `Sıcaklık ${currentTemp.toFixed(1)}°C — fanlar ve ped soğutma artırıldı.`
+                    : currentTemp < 18.0
+                    ? `Sıcaklık ${currentTemp.toFixed(1)}°C — ısıtıcılar devreye alındı.`
+                    : `Amonyak ${currentNH3} PPM — havalandırma ve tahliye senaryosu aktive edildi.`;
+                triggerAlarmFeedback(
+                    currentTemp > 28.0 ? 'Yüksek Sıcaklık Alarmı' : currentTemp < 18.0 ? 'Düşük Sıcaklık Alarmı' : 'NH3 Gaz Alarmı',
+                    alarmMessage
+                );
                 alarmBanner.classList.remove('hidden');
                 alarmBanner.className = "mb-8 p-4 rounded-2xl border alarm-flash flex items-center justify-between gap-4 transition-all duration-300";
                 
                 if (currentTemp > 28.0) {
                     alarmTitle.innerText = "🚨 KRİTİK YÜKSEK SICAKLIK ALARMI!";
-                    alarmDesc.innerText = `Sıcaklık ${currentTemp.toFixed(1)}°C seviyesine ulaştı. Fanlar ve ped soğutma acil moda geçti.`;
+                    alarmDesc.innerText = `Sıcaklık ${currentTemp.toFixed(1)}°C seviyesine ulaştı. Tünel fanlar ve ped soğutma %100 seviyede çalışıyor.`;
                 } else if (currentTemp < 18.0) {
                     alarmTitle.innerText = "❄️ KRİTİK DÜŞÜK SICAKLIK ALARMI!";
-                    alarmDesc.innerText = `Sıcaklık ${currentTemp.toFixed(1)}°C seviyesine düştü. Isıtıcılar otomatik çalışıyor.`;
+                    alarmDesc.innerText = `Sıcaklık ${currentTemp.toFixed(1)}°C seviyesine düştü. Radyan ısıtıcılar otomatik devreye sokuldu.`;
                 } else if (currentNH3 >= 20) {
-                    alarmTitle.innerText = "⚠️ AMONYAK GAZ ALARMI!";
-                    alarmDesc.innerText = `Gaz seviyesi ${currentNH3} PPM. Havalandırma klapeleri tam açıldı.`;
+                    alarmTitle.innerText = "⚠️ ZEHİRLİ GAZ (NH3) ALARMI!";
+                    alarmDesc.innerText = `Amonyak gazı ${currentNH3} PPM seviyesine çıktı. Baca ve klape tahliyeleri açıldı.`;
                 }
 
                 document.getElementById('status-alarm-text').innerText = "Arama ve SMS Gönderiliyor...";
@@ -984,9 +1243,14 @@
                 modeBadge.innerText = "ALARM MODU";
                 modeBadge.className = "px-2.5 py-1 rounded-md text-[11px] font-bold bg-red-500/20 text-red-400 border border-red-500/40 animate-pulse";
 
-                simLog.innerText = "UYARI: Limitler aşıldı! Pano güvenlik senaryoları aktif.";
+                simLog.innerText = "UYARI: Sensör verileri sınır değerleri aştı! Pano otomasyonu acil senaryoyu yürütüyor.";
             } else {
                 alarmBanner.classList.add('hidden');
+
+                if (lastAlarmKey !== 'SYSTEM_NORMAL') {
+                    lastAlarmKey = 'SYSTEM_NORMAL';
+                    addAlarmHistory('Sistem Normale Döndü', 'Sensör değerleri güvenli çalışma aralığına geri geldi.', 'warning');
+                }
 
                 document.getElementById('status-alarm-text').innerText = "Hat Hazır (Sistem Normal)";
                 document.getElementById('status-alarm-badge').innerText = "STANDBY";
@@ -995,17 +1259,68 @@
                 modeBadge.innerText = "DENGELİ MOD";
                 modeBadge.className = "px-2.5 py-1 rounded-md text-[11px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40";
 
-                simLog.innerText = "Sistem Stabil: Sensör verileri normal sınırlarda.";
+                simLog.innerText = "Sistem Stabil: Tüm sensör değerleri broiler kümes standartlarında.";
             }
         }
 
+        // BROILER DEVELOPMENT TIMELINE STAGES
+        const stages = {
+            1: {
+                temp: "32.5 °C",
+                tempDesc: "Civcivlerin üşümemesi için yüksek radyan sıcaklık kontrolü.",
+                fan: "Asgari (Minimum)",
+                fanDesc: "Hava ceryanı oluşturmadan temiz oksijen sağlama.",
+                feed: "Sürekli & Alçak Seviye",
+                feedDesc: "Civciv boyuna göre sensörlü otomatik hat yüksekliği."
+            },
+            2: {
+                temp: "25.0 °C",
+                tempDesc: "Hızlı büyüme döneminde ideal tüy gelişimi ve serinlik.",
+                fan: "Kademeli Fan (Kademe 3)",
+                fanDesc: "Amonyak birikimini engelleyen orta seviye havalandırma.",
+                feed: "Zaman Programlı",
+                feedDesc: "Yem dönüşüm oranını (FCR) optimize eden besleme döngüsü."
+            },
+            3: {
+                temp: "20.5 °C",
+                tempDesc: "Kesim öncesi yüksek canlı ağırlık için serin ve ferah ortam.",
+                fan: "Maksimum Tünel Fan",
+                fanDesc: "Kümes boyuna yüksek hızlı hava akışı sağlayan tünel havalandırma.",
+                feed: "Otomatik Dojajlama",
+                feedDesc: "Yem kesim saatine kadar hassas silo kantarı takibi."
+            }
+        };
+
+        function changeStage(stageNum) {
+            document.querySelectorAll('.stage-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-500', 'text-white');
+                btn.classList.add('bg-slate-800', 'text-slate-300');
+            });
+            const activeBtn = document.getElementById(`stage-btn-${stageNum}`);
+            activeBtn.classList.remove('bg-slate-800', 'text-slate-300');
+            activeBtn.classList.add('bg-brand-500', 'text-white');
+
+            const data = stages[stageNum];
+            document.getElementById('stage-temp').innerText = data.temp;
+            document.getElementById('stage-temp-desc').innerText = data.tempDesc;
+            document.getElementById('stage-fan').innerText = data.fan;
+            document.getElementById('stage-fan-desc').innerText = data.fanDesc;
+            document.getElementById('stage-feed').innerText = data.feed;
+            document.getElementById('stage-feed-desc').innerText = data.feedDesc;
+        }
+
+        // İlk açılış
+        renderAlarmHistory();
+        updateSimulationLogic();
+
+        // WHATSAPP FORM SUBMISSION
         function sendToWhatsapp() {
             const name = document.getElementById('form-name').value;
             const phone = document.getElementById('form-phone').value;
             const city = document.getElementById('form-city').value;
             const msg = document.getElementById('form-msg').value;
 
-            const text = `Merhaba Bekir Bey,%0A%0ASitenizden iletişim formu doldurdum:%0A- *Ad Soyad:* ${name}%0A- *Telefon:* ${phone}%0A- *Konum:* ${city}%0A- *İş/Arıza Detayı:* ${msg}`;
+            const text = `Merhaba Bekir Bey,%0A%0ASitenizden teklif formu doldurdum:%0A- *Ad Soyad:* ${name}%0A- *Telefon:* ${phone}%0A- *Şehir/Mevki:* ${city}%0A- *Mesaj/Detay:* ${msg}`;
             window.open(`https://wa.me/905337692278?text=${text}`, '_blank');
         }
     </script>
