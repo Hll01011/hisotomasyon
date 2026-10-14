@@ -1,6 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-<rect width="128" height="128" rx="22" fill="#d71920"/>
-<path d="M18 28h14v28h22V28h14v72H54V69H32v31H18z" fill="#fff"/>
-<path d="M76 28h34v13H89v16h18v13H89v16h21v14H76z" fill="#fff"/>
-<path d="M91 6 61 64h19l-7 57 37-70H89z" fill="#17191c" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150" viewBox="0 0 300 150" role="img" aria-labelledby="title desc">
+<title id="title">HİS Otomasyon</title><desc id="desc">Elektrik kontrol panosu ve tavuk kümesi otomasyonu logosu</desc>
+<defs><linearGradient id="red" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ff242b"/><stop offset="1" stop-color="#c90012"/></linearGradient><linearGradient id="steel" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#e8edf1"/><stop offset="1" stop-color="#8b969f"/></linearGradient></defs>
+<rect x="2.5" y="2.5" width="295" height="145" rx="12" fill="#fff" stroke="#d71920" stroke-width="3"/>
+<!-- control cabinet -->
+<rect x="10" y="18" width="49" height="77" rx="3" fill="url(#steel)" stroke="#333d45" stroke-width="1.5"/>
+<rect x="16" y="24" width="37" height="17" rx="2" fill="#202830"/>
+<path d="M20 36h5v-6h5v6h5" fill="none" stroke="#f12a31" stroke-width="1.8"/>
+<circle cx="22" cy="49" r="3" fill="#2bb673" stroke="#fff" stroke-width=".7"/><circle cx="32" cy="49" r="3" fill="#f2bd32" stroke="#fff" stroke-width=".7"/><circle cx="42" cy="49" r="3" fill="#e52a31" stroke="#fff" stroke-width=".7"/>
+<g fill="#303a43"><rect x="17" y="58" width="7" height="11" rx="1"/><rect x="27" y="58" width="7" height="11" rx="1"/><rect x="37" y="58" width="7" height="11" rx="1"/><rect x="17" y="73" width="27" height="3" rx="1"/><rect x="17" y="79" width="27" height="3" rx="1"/></g>
+<!-- wordmark -->
+<text x="69" y="72" font-family="Arial,Helvetica,sans-serif" font-size="48" font-weight="900" letter-spacing="-3" fill="#20262c">H</text>
+<path d="M112 29h13l-8 10h-13zM105 44h16v28h-16z" fill="url(#red)"/>
+<text x="123" y="72" font-family="Arial,Helvetica,sans-serif" font-size="48" font-weight="900" letter-spacing="-3" fill="#20262c">S</text>
+<!-- poultry house roof and shed -->
+<path d="M190 43 232 15 278 43" fill="none" stroke="#d71920" stroke-width="5" stroke-linejoin="round"/>
+<path d="M201 43h66v42h-66z" fill="#fff" stroke="#303840" stroke-width="1.5"/>
+<path d="M210 52h48v33h-48z" fill="#f3f5f6" stroke="#d71920" stroke-width="1"/>
+<!-- feeder line -->
+<path d="M212 60h44M212 66h44" stroke="#b4bbc0" stroke-width="1.5"/>
+<g fill="#d71920"><path d="M217 73c-5-8 5-13 8-7 4-1 7 4 4 8l-2 4h-8z"/><circle cx="225" cy="67" r="1" fill="#fff"/><path d="M239 73c-5-8 5-13 8-7 4-1 7 4 4 8l-2 4h-8z"/><circle cx="247" cy="67" r="1" fill="#fff"/></g>
+<!-- bottom nameplate -->
+<path d="M5 101h290v34q0 9-9 9H14q-9 0-9-9z" fill="url(#red)"/>
+<text x="150" y="125" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="900" letter-spacing="2" fill="#fff">OTOMASYON</text>
 </svg>
