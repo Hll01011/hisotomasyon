@@ -60,7 +60,7 @@ html{background:#080a0c;color-scheme:dark;scroll-padding-top:88px}
 body{background:#080a0c;color:#f5f5f5}
 .site-header{height:88px;background:rgba(5,7,9,.92);border-bottom:1px solid #ffffff16;backdrop-filter:blur(20px)}
 .wrap{width:min(1700px,calc(100% - 80px))}
-.brand{position:relative;isolation:isolate;overflow:hidden}.brand:before{content:"";position:absolute;z-index:2;top:-35%;bottom:-35%;left:var(--logo-light-x,0px);width:34%;pointer-events:none;opacity:0;background:linear-gradient(105deg,transparent 0%,#ffffff08 25%,#ffffffa8 48%,#ff344b90 55%,#ffffff12 72%,transparent 100%);transform:translateX(-50%) skewX(-18deg);mix-blend-mode:screen;filter:blur(3px);transition:opacity .18s}.brand.logo-light-active:before{opacity:.95}.brand img{position:relative;z-index:1;width:230px;height:76px;object-fit:contain;object-position:left center;filter:drop-shadow(0 0 9px #f0182b45)}
+.brand{position:relative;isolation:isolate;overflow:hidden}.brand img{position:relative;z-index:1;width:230px;height:76px;object-fit:contain;object-position:left center;filter:drop-shadow(0 0 9px #f0182b45)}.logo-light-beam{position:absolute;z-index:5;top:-12%;bottom:-12%;left:0;width:46px;pointer-events:none;opacity:0;transform:translateX(-50%) skewX(-20deg);background:linear-gradient(90deg,transparent 0%,#ffffff35 25%,#ffffffef 48%,#ff344bcc 57%,#ffffff45 75%,transparent 100%);filter:blur(2px);mix-blend-mode:screen;transition:opacity .12s}.brand.logo-light-active .logo-light-beam{opacity:1}
 .nav-links{gap:clamp(14px,2.3vw,38px)}
 .nav-links>a:not(.nav-cta){color:#f2f2f2;text-transform:uppercase;font-size:11px;letter-spacing:.6px}
 .nav-links>a:not(.nav-cta):hover{color:var(--red)}
@@ -191,7 +191,7 @@ function closeImageLightbox(){lightbox.classList.remove('open');lightboxImage.re
 document.getElementById('imageLightboxClose').addEventListener('click',closeImageLightbox);lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeImageLightbox();});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lightbox.classList.contains('open'))closeImageLightbox();});
 // Logo üzerinde fareyi takip eden ince ışık hüzmesi.
 const logoLight=document.querySelector('.brand');
-if(logoLight){logoLight.addEventListener('pointermove',e=>{const r=logoLight.getBoundingClientRect();logoLight.style.setProperty('--logo-light-x',(e.clientX-r.left)+'px');logoLight.classList.add('logo-light-active');});logoLight.addEventListener('pointerleave',()=>{logoLight.classList.remove('logo-light-active');});}
+if(logoLight){const beam=document.createElement('span');beam.className='logo-light-beam';beam.setAttribute('aria-hidden','true');logoLight.appendChild(beam);logoLight.addEventListener('pointermove',e=>{const r=logoLight.getBoundingClientRect();beam.style.left=(e.clientX-r.left)+'px';logoLight.classList.add('logo-light-active');});logoLight.addEventListener('pointerleave',()=>{logoLight.classList.remove('logo-light-active');});}
 const heroGlow=document.querySelector('.hero');
 if(heroGlow){heroGlow.addEventListener('pointermove',e=>{const r=heroGlow.getBoundingClientRect();heroGlow.style.setProperty('--mx',(e.clientX-r.left)+'px');heroGlow.style.setProperty('--my',(e.clientY-r.top)+'px');});heroGlow.addEventListener('pointerleave',()=>{heroGlow.style.setProperty('--mx','50%');heroGlow.style.setProperty('--my','50%');});}
 const toggle=document.getElementById('menuToggle'),nav=document.getElementById('navLinks');
