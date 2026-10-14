@@ -53,6 +53,44 @@ footer{background:#151619;padding:45px 0 22px}.footer-top{padding-bottom:30px}.f
 @media(max-width:650px){.wrap{width:calc(100% - 32px)}.nav{min-height:70px}.brand-main{font-size:22px}.brand img{width:39px!important;height:39px!important}.navlinks{gap:6px}.navlinks .btn{padding:11px 12px;font-size:11px}.hero-grid{min-height:0;padding:55px 0 35px;gap:28px}.hero h1{font-size:clamp(47px,12vw,64px);letter-spacing:-3.4px}.hero p{font-size:14px;line-height:1.8}.hero-photo{min-height:270px;transform:none}.hero-photo img{height:300px}.hero:after{right:-360px;top:-200px;opacity:.55}.hero-points{font-size:10px;gap:10px 13px}.trust-row{padding:20px 0;gap:17px 8px}.trust-item{gap:8px}.trust-icon{width:34px;height:34px;font-size:16px}.trust-item strong{font-size:10px}.trust-item small{font-size:9px}section{padding:67px 0}.section-head{margin-bottom:28px}.section-head h2{font-size:37px;letter-spacing:-1.7px}.section-head p{font-size:13px}.services{grid-template-columns:1fr 1fr;gap:10px}.service img{height:125px}.service-body{padding:14px 13px 17px}.service h3{font-size:15px;letter-spacing:-.5px}.service p{font-size:11px;min-height:92px;line-height:1.65}.service-icon{font-size:19px}.text-link{font-size:10px}.about-grid{gap:34px}.about-image img{height:330px}.experience{right:8px;bottom:12px;padding:14px 17px}.experience strong{font-size:25px}.about-copy h2{font-size:39px;letter-spacing:-1.8px}.about-copy p{font-size:13px}.checks{grid-template-columns:1fr;gap:11px}.project-grid{grid-template-columns:1fr;gap:14px}.project img{height:230px}.project-info{padding:18px}.cta{padding:44px 0}.cta h2{font-size:36px}.cta-row .btn{margin-top:22px}.contact-grid{grid-template-columns:1fr;gap:28px}.contact-copy h2{font-size:43px}.contact-card{padding:22px}.form-row{grid-template-columns:1fr;gap:0}.footer-top,.footer-bottom{display:block}.footer-top p{margin-bottom:20px}.footer-links{margin-top:18px;gap:15px}.footer-bottom span{display:block;margin-top:8px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 
+
+/* HERO V2 — editorial, architectural, high-end industrial */
+.hero-premium{min-height:690px;isolation:isolate;background:#151619}
+.hero-premium:before{background:radial-gradient(ellipse at 76% 42%,#303237 0%,#202226 33%,transparent 66%),linear-gradient(118deg,#151619 0%,#191a1d 58%,#202125 100%)}
+.hero-premium:after{right:-175px;top:-310px;width:700px;height:1040px;transform:rotate(5deg) skewX(-10deg);background:linear-gradient(138deg,transparent 37%,#e3262e 37%,#e3262e 44%,#a9131a 44%,#a9131a 46%,transparent 46%);opacity:.92}
+.hero-grid-lines{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.22;background-image:linear-gradient(#ffffff10 1px,transparent 1px),linear-gradient(90deg,#ffffff10 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(90deg,#000,transparent 88%)}
+.hero-index{position:absolute;left:max(32px,calc((100vw - 1240px)/2));top:35px;display:flex;align-items:center;gap:13px;color:#ff525a;font:600 11px 'Space Grotesk',sans-serif;letter-spacing:2px}
+.hero-index span{font:500 9px 'DM Sans',sans-serif;letter-spacing:2.1px;color:#85898f}
+.hero-premium .hero-grid{min-height:690px;padding-top:100px;padding-bottom:72px;grid-template-columns:1.02fr .98fr;gap:62px}
+.hero-premium .eyebrow{font-size:9px;letter-spacing:2.1px;color:#ff777d}
+.hero-premium h1{font-size:clamp(58px,6.4vw,91px);letter-spacing:-5.7px;line-height:.91;margin:27px 0 27px;max-width:650px}
+.hero-premium h1 span{display:inline-block;position:relative;color:#ff3c45}
+.hero-premium h1 span:after{content:"";position:absolute;left:2px;bottom:-7px;width:56%;height:3px;background:#ff3c45}
+.hero-premium p{font-size:15px;max-width:460px;line-height:1.95;color:#c5c7ca}
+.hero-premium .hero-actions{margin:32px 0 0}
+.hero-premium .btn{min-height:50px;padding:0 20px;font-size:12px;letter-spacing:.1px}
+.hero-premium .btn.outline{background:#ffffff08;border-color:#ffffff35}
+.hero-premium .founder-line{max-width:365px;margin-top:26px;padding-top:18px}
+.hero-premium .hero-points{margin-top:25px;padding-top:18px;border-top:1px solid #ffffff18;gap:9px 16px;font-size:10px}
+.hero-premium .hero-points span:before{font-size:13px}
+.hero-visual{position:relative;padding:0 0 24px 24px}
+.hero-visual:before{content:"";position:absolute;left:0;top:-24px;width:72%;height:74%;border-left:1px solid #ffffff28;border-top:1px solid #ffffff28;pointer-events:none}
+.hero-visual:after{content:"";position:absolute;right:-14px;bottom:2px;width:42%;height:56%;border-right:2px solid #e3262e;border-bottom:2px solid #e3262e;pointer-events:none}
+.hero-premium .hero-photo{z-index:1;min-height:0;height:475px;border-radius:0;transform:none;border-color:#ffffff28;box-shadow:0 35px 95px #0008}
+.hero-premium .hero-photo img{height:100%;min-height:475px;object-fit:cover;filter:grayscale(.18) contrast(1.1) brightness(.82);transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .5s}
+.hero-premium .hero-photo:hover img{transform:scale(1.045);filter:grayscale(0) contrast(1.04) brightness(.9)}
+.hero-premium .hero-photo:before{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,#10111400 35%,#101114a8 100%),linear-gradient(90deg,#e3262e18,transparent 65%);pointer-events:none}
+.photo-overlay-mark{position:absolute;z-index:2;right:20px;top:18px;color:#fff;font:600 14px 'Space Grotesk',sans-serif;letter-spacing:4px;border:1px solid #ffffff65;padding:10px 12px;background:#11131870;backdrop-filter:blur(10px)}
+.photo-overlay-mark span{color:#ff454d}
+.hero-premium .photo-label{z-index:2;display:flex;align-items:center;justify-content:space-between;gap:15px;background:#111318d9;padding:18px 20px;border-top:1px solid #ffffff2b;border-left:2px solid #e3262e;font-size:9px;letter-spacing:1.5px}
+.photo-label span:last-child{color:#ff777d;white-space:nowrap}
+.visual-note{position:absolute;left:24px;right:18px;bottom:0;z-index:3;display:flex;align-items:center;gap:10px;color:#9da1a7;font-size:8px;letter-spacing:1.8px}
+.visual-note-dot{width:6px;height:6px;background:#ff454d;border-radius:50%;box-shadow:0 0 12px #ff454d}
+.visual-note-line{height:1px;background:#ffffff2b;flex:1}
+.visual-note strong{font:500 10px 'Space Grotesk',sans-serif;color:#f2f2f2;letter-spacing:1px}
+@media(max-width:950px){.hero-premium .hero-grid{gap:35px}.hero-premium h1{font-size:clamp(52px,6.8vw,72px);letter-spacing:-4px}.hero-premium .hero-photo{height:400px}.hero-premium .hero-photo img{min-height:400px}.hero-index{left:20px}}
+@media(max-width:650px){.hero-premium .hero-grid{padding-top:78px;padding-bottom:42px;gap:34px}.hero-index{top:22px;left:16px;font-size:10px}.hero-index span{font-size:8px;letter-spacing:1.4px}.hero-premium h1{font-size:clamp(49px,12vw,66px);letter-spacing:-3.8px;line-height:.94}.hero-premium p{font-size:13px}.hero-premium .hero-actions{gap:9px}.hero-premium .btn{font-size:11px;padding:0 13px;min-height:46px}.hero-premium .founder-line{margin-top:22px}.hero-premium .hero-points{margin-top:18px}.hero-visual{padding-left:12px;padding-bottom:22px}.hero-visual:before{top:-12px}.hero-visual:after{right:-5px;bottom:0}.hero-premium .hero-photo{height:310px}.hero-premium .hero-photo img{min-height:310px}.hero-premium .photo-label{padding:14px 12px;font-size:7px;letter-spacing:1px}.photo-overlay-mark{right:12px;top:12px;font-size:11px;padding:8px}.visual-note{left:12px;right:10px;font-size:7px;letter-spacing:1.1px}.hero-premium:after{right:-390px;top:-210px;opacity:.5}.hero-grid-lines{background-size:48px 48px}}
+
 </style>
 </head>
 <body>
@@ -63,9 +101,9 @@ footer{background:#151619;padding:45px 0 22px}.footer-top{padding-bottom:30px}.f
 <nav class="navlinks"><a href="#anasayfa">Ana Sayfa</a><a href="#hakkimizda">Hakkımızda</a><a href="#hizmetler">Hizmetler</a><a href="#projeler">Yaptığımız İşler</a><a href="#iletisim">İletişim</a><a class="btn" href="#iletisim">Teklif Al <span>↗</span></a></nav>
 </div></header>
 <main>
-<section class="hero" id="anasayfa"><div class="wrap hero-grid">
+<section class="hero hero-premium" id="anasayfa"><div class="hero-grid-lines" aria-hidden="true"></div><div class="hero-index" aria-hidden="true">01 <span>— SYSTEMS THAT WORK</span></div><div class="wrap hero-grid">
 <div><div class="eyebrow">Kümes otomasyonu · Elektrik panoları · Endüstriyel çözümler</div><h1>Güvenilir <span>Otomasyon.</span><br>Verimli Üretim.</h1><p>Tavuk çiftlikleri ve endüstriyel tesisler için elektrik panoları, otomasyon sistemleri ve sahaya uygun çözümler.</p><div class="hero-actions"><a class="btn" href="#hizmetler">Hizmetlerimizi İncele <span>→</span></a><a class="btn outline" href="https://wa.me/905337692278" target="_blank" rel="noopener">WhatsApp ile Ulaşın ↗</a></div><div class="founder-line"><span>İŞİNİN BAŞINDA</span><strong>Bekir Şener</strong><small>Kurucu · HİS Otomasyon Sistemleri</small></div><div class="hero-points"><span>Özenli pano imalatı</span><span>Sahaya uygun çözümler</span><span>Teknik destek</span></div></div>
-<div class="hero-photo"><img src="images/hero-pano.jpg" alt="Endüstriyel elektrik ve otomasyon çalışması"><div class="photo-label">HİS OTOMASYON SİSTEMLERİ · TARSUS / MERSİN</div></div>
+<div class="hero-visual"><div class="hero-photo"><img src="images/hero-pano.jpg" alt="Endüstriyel elektrik ve otomasyon çalışması"><div class="photo-overlay-mark">H<span>·</span>I<span>·</span>S</div><div class="photo-label"><span>HİS OTOMASYON SİSTEMLERİ</span><span>TARSUS / MERSİN ↗</span></div></div><div class="visual-note"><span class="visual-note-dot"></span><span>CONTROL / AUTOMATION / POWER</span><span class="visual-note-line"></span><strong>01—04</strong></div></div>
 </div></section>
 <div class="trust"><div class="wrap trust-row"><div class="trust-item"><div class="trust-icon">▦</div><div><strong>Elektrik Panoları</strong><small>Kumanda ve güç panoları</small></div></div><div class="trust-item"><div class="trust-icon">⌘</div><div><strong>Kümes Otomasyonu</strong><small>Fan ve iklimlendirme</small></div></div><div class="trust-item"><div class="trust-icon">⚙</div><div><strong>PLC Sistemleri</strong><small>Kontrol ve otomasyon</small></div></div><div class="trust-item"><div class="trust-icon">✓</div><div><strong>Saha Çözümleri</strong><small>İhtiyaca uygun uygulama</small></div></div></div></div>
 <section id="hizmetler"><div class="wrap"><div class="section-head"><div><div class="kicker">Neler yapıyoruz?</div><h2>İşinizi ileri taşıyan<br>otomasyon çözümleri</h2></div><p>İhtiyaca göre planlanan, düzenli işçilik ve işlevselliği önceleyen elektrik ve otomasyon uygulamaları.</p></div>
