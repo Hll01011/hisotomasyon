@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hll01011.github.io/hisotomasyon/sitemap.xml
