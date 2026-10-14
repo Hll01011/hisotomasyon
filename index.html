@@ -93,6 +93,7 @@ body{background:#080a0c;color:#f5f5f5}
 .ticker{background:#0e1013;border-top:1px solid #f0182b55;border-bottom:1px solid #ffffff15}
 .ticker-track{min-height:68px;justify-content:space-between;font-size:11px;letter-spacing:1.5px;gap:20px}
 .ticker-track span{display:flex;gap:10px;align-items:center}
+/* Kesintisiz kayan hizmet şeridi */.ticker{overflow:hidden}.ticker-track{display:flex;width:max-content;justify-content:flex-start;gap:0;animation:serviceTicker 34s linear infinite;will-change:transform}.ticker-group{display:flex;align-items:center;flex-shrink:0;gap:34px;padding-right:34px}.ticker-group span{flex-shrink:0;white-space:nowrap}.ticker:hover .ticker-track{animation-play-state:paused}@keyframes serviceTicker{from{transform:translateX(0)}to{transform:translateX(-50%)}}@media(prefers-reduced-motion:reduce){.ticker-track{animation:none;width:100%;overflow-x:auto}}
 .section{background:#0a0c0f;color:#f4f4f4}
 .section-desc{color:#b0b0b0}
 .section-title{color:#f7f7f7}
@@ -144,7 +145,7 @@ body{background:#080a0c;color:#f5f5f5}
 </div>
 <div class="hero-media"><div class="hero-image"><img src="images/hero-pano.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=85'" alt="Endüstriyel mühendislik ve otomasyon çalışması" fetchpriority="high"><div class="image-stamp">HİS / CONTROL SYSTEMS</div><div class="image-caption"><div><strong>Kümes otomasyonu.</strong><small>KESİMLİK TAVUK KÜMESİ EKİPMANLARI</small></div><span class="number">01—04</span></div></div><div class="media-foot">KÜMES İÇİ OTOMASYON <span>TARSUS / MERSİN</span></div></div>
 </div></section>
-<div class="ticker"><div class="wrap ticker-track"><span>⚙ Elektrik panoları</span><span>♧ Kesimlik tavuk kümesi otomasyonu</span><span>▦ PLC ve kontrol sistemleri</span><span>◉ Fan ve havalandırma</span><span>♧ Sulama ve nipel sistemleri</span><span>▤ Yemleme ve motor grupları</span><span>☼ Isıtma ve aydınlatma kontrolü</span></div></div>
+<div class="ticker" aria-label="Hizmetlerimiz"><div class="ticker-track"><div class="ticker-group"><span>⚙ Elektrik panoları</span><span>♧ Kesimlik tavuk kümesi otomasyonu</span><span>▦ PLC ve kontrol sistemleri</span><span>◉ Fan ve havalandırma</span><span>♧ Sulama ve nipel sistemleri</span><span>▤ Yemleme ve motor grupları</span><span>☼ Isıtma ve aydınlatma kontrolü</span></div><div class="ticker-group" aria-hidden="true"><span>⚙ Elektrik panoları</span><span>♧ Kesimlik tavuk kümesi otomasyonu</span><span>▦ PLC ve kontrol sistemleri</span><span>◉ Fan ve havalandırma</span><span>♧ Sulama ve nipel sistemleri</span><span>▤ Yemleme ve motor grupları</span><span>☼ Isıtma ve aydınlatma kontrolü</span></div></div></div>
 <section class="section" id="hizmetler"><div class="wrap">
 <div class="section-top reveal"><div><div class="eyebrow">Ne yapıyoruz?</div><h2 class="section-title">Kesimlik tavuk<br>kümesleri için <span class="red">çözümler.</span></h2></div><p class="section-desc">Kümes içindeki havalandırma, sulama, yemleme ve kontrol ekipmanlarına yönelik otomasyon çözümleri.</p></div>
 <div class="services">
