@@ -20,16 +20,13 @@ Site GitHub Pages üzerinde yayınlanır. Fotoğrafları yüklemek için kod yaz
 
 ## Proje galerisi
 
-Galerideki altı fotoğrafın dosya adları:
+Şu an ana sayfadaki uygulama galerisi için kullanılan fotoğraf dosyaları:
 
 - `proje-01.jpg`
 - `proje-02.jpg`
 - `proje-03.jpg`
-- `proje-04.jpg`
-- `proje-05.jpg`
-- `proje-06.jpg`
 
-Her yeni fotoğrafı bu adlardan biriyle yükleyerek ilgili görseli değiştirebilirsin. Aynı dosya adı varsa GitHub yeni yüklemede mevcut dosyanın değiştirilmesini ister; emin değilsen önce eski dosyayı açıp kontrol et.
+Fotoğraflar aynı adla `images` klasörüne yüklendiğinde sayfada otomatik görünür. Kod düzenlemen gerekmez. Dosya henüz yüklenmediyse sayfa geçici temsili görsel gösterir. Aynı dosya adı varsa GitHub mevcut dosyayı değiştirmek isteyip istemediğini sorar.
 
 ## İpuçları
 
